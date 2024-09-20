@@ -1,3 +1,6 @@
-class nadeen{
-  String h;
+class hazem{
+
+  String? name;
+
+  hazem({this.name});
 }

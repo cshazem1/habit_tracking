@@ -1,5 +1,6 @@
 import 'dart:async';
 
+import 'package:audioplayers/audioplayers.dart';
 import 'package:bloc/bloc.dart';
 import 'package:meta/meta.dart';
 
@@ -12,20 +13,31 @@ class TimerCubit extends Cubit<TimerState> {
   double? progress ;
   Timer? timer;
   bool isPlay=true;
+  final player = AudioPlayer();
+
   void startTimer() {
 
-    timer = Timer.periodic(const Duration(seconds: 1), (timer) {
-
-        if (remainingTime! > 0) {
+    timer = Timer.periodic(const Duration(seconds: 1), (timer)  {
+      if (remainingTime! > 0) {
           remainingTime=remainingTime!-1;
           progress = remainingTime! / maxTime!;
+
+          if(remainingTime!>maxTime!/4){
+            player.play(AssetSource('music/videoplayback2.mp3'));
+
+          }
+          else {
+            player.play(AssetSource('music/videoplaybac.mp3'));
+          }
+
+
           emit(TimerSuccess(text: getFormattedTime()));
         } else {
           timer.cancel();
           isPlay=false;
           emit(TimerSuccess(text: getFormattedTime()));
         }
-      });
+    });
 
   }
 
@@ -33,6 +45,7 @@ class TimerCubit extends Cubit<TimerState> {
     pauseTimer();
     remainingTime = maxTime;
     progress = 1;
+    isPlay=true;
     startTimer();
     emit(TimerSuccess(text: getFormattedTime()));
   }

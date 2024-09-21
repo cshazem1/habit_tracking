@@ -16,5 +16,9 @@ class Assets {
   static const String imagesTeaCupDynamicColor = 'assets/images/tea-cup-dynamic-color.png';
   static const String monsterratMontserratBold = 'assets/fonts/monsterrat/Montserrat-Bold.ttf';
   static const String monsterratMontserratRegular = 'assets/fonts/monsterrat/Montserrat-Regular.ttf';
+  static const String musicTokuAssetsSoundsFamilyMembersFather = 'assets/music/toku_assets_sounds_family_members_father.wav';
+  static const String musicVideoplaybac = 'assets/music/videoplaybac.mp3';
+  static const String musicVideoplayback1 = 'assets/music/videoplayback1.mp3';
+  static const String musicVideoplayback2 = 'assets/music/videoplayback2.mp3';
 
 }

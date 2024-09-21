@@ -18,7 +18,7 @@ class MyApp extends StatelessWidget {
       minTextAdapt: true,
       splitScreenMode: true,
       child: MaterialApp(
-        home: TimerViews(nameAppBar: 'Timer'),
+        home: TimerViews(nameAppBar: 'Meditate for 30 minutes'),
       ),
     );
   }}

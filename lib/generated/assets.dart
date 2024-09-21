@@ -2,19 +2,19 @@
 class Assets {
   Assets._();
 
+  static const String imagesBagDynamicColor = 'assets/images/bag-dynamic-color.png';
+  static const String imagesBoyDynamicColor = 'assets/images/boy-dynamic-color.png';
+  static const String imagesChessDynamicColor = 'assets/images/chess-dynamic-color.png';
+  static const String imagesGiftDynamicColor = 'assets/images/gift-dynamic-color.png';
+  static const String imagesGirlDynamicColor = 'assets/images/girl-dynamic-color.png';
+  static const String imagesGymDynamicColor = 'assets/images/gym-dynamic-color.png';
+  static const String imagesMinecraftDynamicColor = 'assets/images/minecraft-dynamic-color.png';
+  static const String imagesNotebookDynamicColor = 'assets/images/notebook-dynamic-color.png';
+  static const String imagesPaintKitDynamicColor = 'assets/images/paint-kit-dynamic-color.png';
+  static const String imagesRocketDynamicColor = 'assets/images/rocket-dynamic-color.png';
+  static const String imagesTargetDynamicColor = 'assets/images/target-dynamic-color.png';
+  static const String imagesTeaCupDynamicColor = 'assets/images/tea-cup-dynamic-color.png';
   static const String monsterratMontserratBold = 'assets/fonts/monsterrat/Montserrat-Bold.ttf';
   static const String monsterratMontserratRegular = 'assets/fonts/monsterrat/Montserrat-Regular.ttf';
-  static const String svgBagDynamicColor = 'assets/images/svg/bag-dynamic-color.svg';
-  static const String svgBoyDynamicColor = 'assets/images/svg/boy-dynamic-color.svg';
-  static const String svgChessDynamicColor = 'assets/images/svg/chess-dynamic-color.svg';
-  static const String svgGiftDynamicColor = 'assets/images/svg/gift-dynamic-color.svg';
-  static const String svgGirlDynamicColor = 'assets/images/svg/girl-dynamic-color.svg';
-  static const String svgGymDynamicColor = 'assets/images/svg/gym-dynamic-color.svg';
-  static const String svgMinecraftDynamicColor = 'assets/images/svg/minecraft-dynamic-color.svg';
-  static const String svgNotebookDynamicColor = 'assets/images/svg/notebook-dynamic-color.svg';
-  static const String svgPaintKitDynamicColor = 'assets/images/svg/paint-kit-dynamic-color.svg';
-  static const String svgRocketDynamicColor = 'assets/images/svg/rocket-dynamic-color.svg';
-  static const String svgTargetDynamicColor = 'assets/images/svg/target-dynamic-color.svg';
-  static const String svgTeaCupDynamicColor = 'assets/images/svg/tea-cup-dynamic-color.svg';
 
 }

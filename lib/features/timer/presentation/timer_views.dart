@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'package:habit_tracking/features/timer/presentation/widgets/timer_view_body.dart';
+
 import '../../../core/utlis/styles.dart';
 
 class TimerViews extends StatelessWidget {
@@ -9,26 +11,13 @@ class TimerViews extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        centerTitle: true,
         title: Text(nameAppBar, style: Styles.textSemiBold16),
       ),
-      body: Column(
-        children: [
-          Container(
-            decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(12),
-                color: const Color(0xffF8F8F8)),
-            child: Row(
-              children: [
-                Container(
-                  decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(12),
-                      color: const Color(0xffFFC7F9)),
-                )
-              ],
-            ),
-          )
-        ],
-      ),
+      body: const TimerViewBody(),
     );
   }
 }
+
+
+

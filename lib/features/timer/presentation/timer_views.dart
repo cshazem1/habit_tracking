@@ -15,8 +15,8 @@ final String nameAppBar;
         children: [
           Container(
             decoration: BoxDecoration(borderRadius: BorderRadius.circular(12),color: const Color(0xffF8F8F8)),
-            child: const Row(children: [
-              
+            child:  Row(children: [
+              Container(decoration: BoxDecoration(borderRadius: BorderRadius.circular(12),color: const Color(0xffFFC7F9)),)
             ],),
           )
         ],

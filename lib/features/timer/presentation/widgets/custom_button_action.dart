@@ -1,8 +1,6 @@
-import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:habit_tracking/features/timer/presentation/widgets/timer_view_body.dart';
 
 import '../manager/timer_cubit/timer_cubit.dart';
 import 'custom_circle_button.dart';

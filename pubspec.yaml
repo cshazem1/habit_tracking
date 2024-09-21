@@ -36,7 +36,6 @@ dependencies:
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.8
   flutter_screenutil: ^5.9.3
-  flutter_svg: ^2.0.10+1
   bloc: ^8.1.4
   flutter_bloc: ^8.1.6
   audioplayers: ^6.1.0
@@ -96,8 +95,5 @@ flutter:
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/to/font-from-package
   assets:
-    - assets/images/
-
-    - assets/fonts/monsterrat/
-    - assets/music/
+    - assets/images/svg/
 

@@ -9,7 +9,17 @@ final String nameAppBar;
   Widget build(BuildContext context) {
     return   Scaffold(
       appBar:  AppBar(
-        title:  Text(nameAppBar,style:Styles.textMedium10),
+        title:  Text(nameAppBar,style:Styles.textSemiBold16),
+      ),
+      body:  Column(
+        children: [
+          Container(
+            decoration: BoxDecoration(borderRadius: BorderRadius.circular(12),color: const Color(0xffF8F8F8)),
+            child: const Row(children: [
+              
+            ],),
+          )
+        ],
       ),
     );
   }

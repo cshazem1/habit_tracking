@@ -19,12 +19,11 @@ class TimerViews extends StatelessWidget {
         title: Text(nameAppBar, style: Styles.textSemiBold16),
       ),
       body: BlocProvider(
-        create: (context) => TimerCubit()..init(maxTime: 30, progress: 1)..startTimer(),
+        create: (context) => TimerCubit()
+          ..init(maxTime: 30, progress: 1)
+          ..startTimer(),
         child: const TimerViewBody(),
       ),
     );
   }
 }
-
-
-

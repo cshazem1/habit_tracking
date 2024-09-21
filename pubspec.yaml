@@ -37,6 +37,9 @@ dependencies:
   cupertino_icons: ^1.0.8
   flutter_screenutil: ^5.9.3
   flutter_svg: ^2.0.10+1
+  bloc: ^8.1.4
+  flutter_bloc: ^8.1.6
+  audioplayers: ^6.1.0
 
 dev_dependencies:
   flutter_test:
@@ -94,4 +97,7 @@ flutter:
   # see https://flutter.dev/to/font-from-package
   assets:
     - assets/images/
+    - assets/
+    - assets/fonts/
+    - assets/fonts/monsterrat/
 

@@ -11,7 +11,7 @@ class TitleAndSubtitle extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.fromLTRB(0,32,0,32),
+      padding: const EdgeInsets.fromLTRB(16,32,16,32),
       child: Column(
         children: [
 

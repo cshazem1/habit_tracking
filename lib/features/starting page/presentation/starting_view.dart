@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:habit_tracking/features/starting%20page/presentation/widgets/cta_btn.dart';
 import 'package:habit_tracking/features/starting%20page/presentation/widgets/label_btn.dart';
@@ -35,7 +34,7 @@ class StartingView extends StatelessWidget {
                 children: [
                   CtaBtn(label: 'Continue',
                   ),
-                  SizedBox(height: 24),
+                  SizedBox(height: 16),
                   LabelBtn(
                     label: "Already have an account",
                   ),

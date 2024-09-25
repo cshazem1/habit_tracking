@@ -5,11 +5,13 @@ import '../../../../core/utlis/styles.dart';
 
 class CtaBtn extends StatelessWidget {
   const CtaBtn({super.key, required this.label});
-final String label;
+  final String label;
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      height: 48,
+    return Padding(
+      padding: const EdgeInsets.only(left: 16, right: 16),
+      child: SizedBox(
+        height: 48,
         width: double.infinity,
         child: ElevatedButton(
           onPressed: () {},
@@ -25,6 +27,7 @@ final String label;
                 color: const Color(0xffFFFFFF),
               )),
         ),
-      );
+      ),
+    );
   }
 }

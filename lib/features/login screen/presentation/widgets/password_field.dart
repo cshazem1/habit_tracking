@@ -8,7 +8,9 @@ class PasswordField extends StatelessWidget {
   final String hintLabel, label,helperText;
   @override
   Widget build(BuildContext context) {
-    return Column(
+    return Padding(
+        padding: const EdgeInsets.only(left: 16, right: 16),
+    child:Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(label,
@@ -50,6 +52,7 @@ class PasswordField extends StatelessWidget {
           ),
         )
       ],
+    ),
     );
   }
 }

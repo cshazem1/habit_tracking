@@ -33,7 +33,7 @@ class MyApp extends StatelessWidget {
         builder: DevicePreview.appBuilder,
         theme: ThemeData.light(),
         darkTheme: ThemeData.dark(),
-        home: const RegisterView(),
+        home: const OnboardinView(),
       ),
     );
   }}

@@ -16,9 +16,7 @@ class LoginScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Padding(
-        padding: const EdgeInsets.all(16),
-        child: Column(
+      body:  Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             const SizedBox(
@@ -49,7 +47,6 @@ class LoginScreen extends StatelessWidget {
             const LabelBtn(label: "Don’t have account? Sign up"),
           ],
         ),
-      ),
-    );
+      );
   }
 }

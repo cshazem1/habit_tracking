@@ -2,7 +2,10 @@ import 'package:device_preview/device_preview.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get/get_navigation/src/root/get_material_app.dart';
+import 'package:habit_tracking/features/login%20screen/presentation/login_screen.dart';
 import 'package:habit_tracking/features/onboarding/presentation/onboardin_view.dart';
+import 'package:habit_tracking/features/register/presentation/register_view.dart';
 import 'package:habit_tracking/features/starting%20page/presentation/starting_view.dart';
 import 'features/timer/presentation/timer_views.dart';
 
@@ -24,13 +27,13 @@ class MyApp extends StatelessWidget {
       designSize: const Size(375, 812),
       minTextAdapt: true,
       splitScreenMode: true,
-      child: MaterialApp(
+      child: GetMaterialApp(
         useInheritedMediaQuery: true,
         locale: DevicePreview.locale(context),
         builder: DevicePreview.appBuilder,
         theme: ThemeData.light(),
         darkTheme: ThemeData.dark(),
-        home: const TimerViews(nameAppBar: "30 min meditation"),
+        home: const RegisterView(),
       ),
     );
   }}

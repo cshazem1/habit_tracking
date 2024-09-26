@@ -1,5 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:habit_tracking/features/auth/presentation/screens/login/login_view.dart';
+import 'package:habit_tracking/features/login%20screen/presentation/login_screen.dart';
 import 'package:habit_tracking/features/login%20screen/presentation/widgets/arrow_btn.dart';
 import 'package:habit_tracking/features/login%20screen/presentation/widgets/cta_with_label.dart';
 import 'package:habit_tracking/features/login%20screen/presentation/widgets/password_field.dart';
@@ -17,7 +19,7 @@ class RegisterView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Padding(
-        padding: const EdgeInsets.all(16),
+        padding: const EdgeInsets.all(0),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -50,7 +52,11 @@ class RegisterView extends StatelessWidget {
             const SizedBox(height: 16,),
             const CtaWithLabel(label: 'Signed up with Google'),
             const SizedBox(height: 12,),
-            const LabelBtn(label: "I’m already have an account"),
+            LabelBtn(label: "I’m already have an account", onClick: () {
+              Navigator.push(context, MaterialPageRoute(builder: (context) {
+              return LoginScreen();
+            },));
+            },),
           ],
         ),
       ),

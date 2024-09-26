@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:habit_tracking/features/auth/presentation/screens/login/login_view.dart';
+import 'package:habit_tracking/features/login%20screen/presentation/login_screen.dart';
+import 'package:habit_tracking/features/register/presentation/register_view.dart';
 import 'package:habit_tracking/features/starting%20page/presentation/widgets/cta_btn.dart';
 import 'package:habit_tracking/features/starting%20page/presentation/widgets/label_btn.dart';
 import 'package:habit_tracking/features/starting%20page/presentation/widgets/starting_image_and_text.dart';
@@ -25,18 +28,24 @@ class StartingView extends StatelessWidget {
             ],
           ),
           const SizedBox(height: 24,),
-          const Positioned(
+          Positioned(
               bottom: 50,
               left: 16,
               right: 16,
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  CtaBtn(label: 'Continue',
+                  CtaBtn(label: 'Continue', onClick:() {
+                    Navigator.push(context, MaterialPageRoute(builder: (context) {
+                      return const RegisterView();
+                    },)); } ,
                   ),
-                  SizedBox(height: 16),
+                  const SizedBox(height: 16),
                   LabelBtn(
-                    label: "Already have an account",
+                    label: "Already have an account", onClick: () {
+                      Navigator.push(context, MaterialPageRoute(builder: (context) {
+                    return const LoginScreen();
+                  },)); },
                   ),
                 ],
               )),

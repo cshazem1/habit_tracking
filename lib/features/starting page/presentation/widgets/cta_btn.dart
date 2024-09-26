@@ -4,8 +4,9 @@ import 'package:flutter/material.dart';
 import '../../../../core/utlis/styles.dart';
 
 class CtaBtn extends StatelessWidget {
-  const CtaBtn({super.key, required this.label});
+  const CtaBtn({super.key, required this.label, this.onClick});
   final String label;
+  final void Function()? onClick;
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -14,7 +15,7 @@ class CtaBtn extends StatelessWidget {
         height: 48,
         width: double.infinity,
         child: ElevatedButton(
-          onPressed: () {},
+          onPressed: onClick,
           style: ElevatedButton.styleFrom(
             padding: const EdgeInsets.symmetric(vertical: 16),
             shape: RoundedRectangleBorder(

@@ -5,6 +5,7 @@ import 'package:habit_tracking/features/login%20screen/presentation/widgets/cta_
 import 'package:habit_tracking/features/login%20screen/presentation/widgets/password_field.dart';
 import 'package:habit_tracking/features/login%20screen/presentation/widgets/text_field_field.dart';
 import 'package:habit_tracking/features/login%20screen/presentation/widgets/title_and_subtitle.dart';
+import 'package:habit_tracking/features/register/presentation/register_view.dart';
 import 'package:habit_tracking/features/starting%20page/presentation/widgets/cta_btn.dart';
 import 'package:habit_tracking/features/starting%20page/presentation/widgets/label_btn.dart';
 import '../../../core/utlis/text_string.dart';
@@ -44,7 +45,11 @@ class LoginScreen extends StatelessWidget {
             const SizedBox(height: 16,),
             const CtaWithLabel(label: 'Signed in with Google'),
             const SizedBox(height: 12,),
-            const LabelBtn(label: "Don’t have account? Sign up"),
+            LabelBtn(label: "Don’t have account? Sign up", onClick: () {
+              Navigator.push(context, MaterialPageRoute(builder: (context) {
+                return const RegisterView();
+              },));
+            },),
           ],
         ),
       );

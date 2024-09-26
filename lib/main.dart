@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:habit_tracking/core/routes/app_router.dart';
 
 import 'features/timer/presentation/timer_views.dart';
 
@@ -13,12 +14,20 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return const ScreenUtilInit(
-      designSize: Size(375, 812),
+    return  ScreenUtilInit(
+      designSize: const Size(375, 812),
       minTextAdapt: true,
       splitScreenMode: true,
       child: MaterialApp(
-        home: TimerViews(nameAppBar: 'Meditate for 30 minutes'),
+        onGenerateRoute: AppRouter.onGenerateRoute,
+
+        debugShowCheckedModeBanner: false,
+        theme: ThemeData(
+          scaffoldBackgroundColor: Colors.white,
+          appBarTheme: const AppBarTheme(
+            backgroundColor: Colors.white,
+          )
+        ),
       ),
     );
   }}

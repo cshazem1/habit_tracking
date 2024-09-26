@@ -2,21 +2,31 @@ import 'dart:async';
 
 import 'package:audioplayers/audioplayers.dart';
 import 'package:bloc/bloc.dart';
+import 'package:flutter/cupertino.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:meta/meta.dart';
+
+import '../../../data/models/item_model.dart';
 
 part 'timer_state.dart';
 
 class TimerCubit extends Cubit<TimerState> {
   TimerCubit() : super(TimerInitial());
+
+  static TimerCubit get(BuildContext context) => BlocProvider.of(context);
+
+
   int? maxTime; // Total time in seconds (e.g., 5 minutes)
   int? remainingTime;
   double? progress;
   Timer? timer;
-  bool isPlay = true;
+  bool isPlay = false;
+
   final player = AudioPlayer();
 
   void startTimer() {
     timer = Timer.periodic(const Duration(seconds: 1), (timer) {
+
       if (remainingTime! > 0) {
         remainingTime = remainingTime! - 1;
         progress = remainingTime! / maxTime!;
@@ -65,7 +75,8 @@ class TimerCubit extends Cubit<TimerState> {
   String getFormattedTime() {
     int minutes = remainingTime! ~/ 60;
     int seconds = remainingTime! % 60;
-    return '${minutes.toString().padLeft(2, '0')}:${seconds.toString().padLeft(2, '0')}';
+    return '${minutes.toString().padLeft(2, '0')}:${seconds.toString().padLeft(
+        2, '0')}';
   }
 
   void init({required int maxTime, required double progress}) {
@@ -73,7 +84,8 @@ class TimerCubit extends Cubit<TimerState> {
       this.maxTime = maxTime;
       remainingTime = maxTime;
       this.progress = progress;
-      emit(TimerInitial());
+      emit(TimerSuccess(text: getFormattedTime()));
     }
   }
+
 }

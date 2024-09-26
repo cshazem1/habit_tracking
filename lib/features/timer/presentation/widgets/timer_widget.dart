@@ -14,38 +14,41 @@ class TimerWidget extends StatelessWidget {
       alignment: Alignment.center,
       children: [
         const BackGroundTimer(),
-        BlocBuilder<TimerCubit, TimerState>(
-          builder: (context, state) {
-            return SizedBox(
-              width: 200.h,
-              height: 200.h,
-              child: CircularProgressIndicator(
-                value: BlocProvider.of<TimerCubit>(context).progress,
-                strokeWidth: 20,
-                valueColor: BlocProvider.of<TimerCubit>(context).remainingTime!>BlocProvider.of<TimerCubit>(context).maxTime!/4?const AlwaysStoppedAnimation<Color>(Color(0xff9AFF76)):const AlwaysStoppedAnimation<Color>(Colors.red),
-                backgroundColor: Colors.grey[300],
-              ),
-            );
-          },
+        SizedBox(
+          width: 200.h,
+          height: 200.h,
+          child: CircularProgressIndicator(
+            value: BlocProvider.of<TimerCubit>(context).progress,
+            strokeWidth: 20,
+            valueColor: BlocProvider.of<TimerCubit>(context).remainingTime! >
+                    BlocProvider.of<TimerCubit>(context).maxTime! / 4
+                ? const AlwaysStoppedAnimation<Color>(Color(0xff9AFF76))
+                : const AlwaysStoppedAnimation<Color>(Colors.red),
+            backgroundColor: Colors.grey[300],
+          ),
         ),
         Column(
-
           children: [
             BlocBuilder<TimerCubit, TimerState>(
               builder: (context, state) {
                 if (state is TimerSuccess) {
                   return Text(
                     state.text,
-                    style:
-                   Styles.textSemiBold32,
+                    style: Styles.textSemiBold32,
                   );
                 }
                 return const SizedBox();
               },
             ),
-            SizedBox(height: 2.h,),
-            Text("${(BlocProvider.of<TimerCubit>(context).maxTime!/60).toString() } min",style:
-     Styles.textSemiBold16.copyWith(color: Colors.grey[700],),),
+            SizedBox(
+              height: 2.h,
+            ),
+            Text(
+              "${(BlocProvider.of<TimerCubit>(context).maxTime! / 60).toString()} min",
+              style: Styles.textSemiBold16.copyWith(
+                color: Colors.grey[700],
+              ),
+            ),
           ],
         ),
       ],

@@ -4,10 +4,10 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../../../generated/assets.dart';
 
 class CustomIconItem extends StatelessWidget {
-  const CustomIconItem({
+  const CustomIconItem({required this.image,
     super.key,
   });
-
+final String image;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -16,7 +16,7 @@ class CustomIconItem extends StatelessWidget {
         color: const Color(0xffFFC7F9),
       ),
       child: Image.asset(
-        Assets.imagesBagDynamicColor,
+        image,
         width: 32.w,
         height: 32.h,
       ),

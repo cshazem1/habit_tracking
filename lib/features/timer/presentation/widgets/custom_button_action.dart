@@ -25,9 +25,8 @@ class CustomButtonAction extends StatelessWidget {
           color: const Color(0xffEBEEFF),
           size: 56.h,
         ),
-        BlocBuilder<TimerCubit, TimerState>(
-          builder: (context, state) {
-            return CustomCircleButton(
+
+             CustomCircleButton(
               onTap: () {
                 BlocProvider.of<TimerCubit>(context).stopAndResetTimer();
               },
@@ -41,8 +40,7 @@ class CustomButtonAction extends StatelessWidget {
               ),
               color: const Color(0xff5F6CE2),
               size: 96.h,
-            );
-          },
+
         ),
         CustomCircleButton(
           onTap: () {

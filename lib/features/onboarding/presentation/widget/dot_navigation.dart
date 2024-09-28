@@ -10,13 +10,16 @@ class DotNavigation extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final controller = OnboardingController.instance;
-    return Positioned(bottom: 60,
-        left: 16,
-        child: SmoothPageIndicator(
+    return SmoothPageIndicator(
           count: 3,
           controller: controller.pageController,
           onDotClicked: controller.dotNavigationClick,
-          effect: ExpandingDotsEffect(activeDotColor: Color(0xff5F6CE2),dotColor:Color(0XFFEEEEEE),dotHeight: 10,dotWidth: 10),)
+          effect: const ExpandingDotsEffect(
+              activeDotColor: Color(0xff5F6CE2),
+              dotColor:Color(0XFFEEEEEE),
+              dotHeight: 10,dotWidth: 10
+          ),
     );
+
   }
 }

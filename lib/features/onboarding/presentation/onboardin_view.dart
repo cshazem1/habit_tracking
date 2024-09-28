@@ -49,7 +49,7 @@ class OnboardinView extends StatelessWidget {
           const SkipBtn(),
 
           // dot navigation and circular btn
-          Positioned(bottom: 65,left: 16,right: 16,
+          const Positioned(bottom: 65,left: 16,right: 16,
             child:Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             crossAxisAlignment:CrossAxisAlignment.center,

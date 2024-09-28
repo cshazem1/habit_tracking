@@ -7,18 +7,15 @@ class CircularCtaBtn extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return  Positioned(
-      bottom: 60,
-      right: 16,
-      child:
-      ElevatedButton(onPressed: () => OnboardingController.instance.nextPage(),
+    return ElevatedButton(
+      onPressed: () => OnboardingController.instance.nextPage(),
         child:Icon(Icons.arrow_forward,size: 24,),
         style:ElevatedButton.styleFrom(
             shape: CircleBorder(),
             padding: EdgeInsets.all(16),
             backgroundColor:Color(0xff5F6CE2),
-            foregroundColor: Color(0xffFFFFFF)),),
-
+            foregroundColor: Color(0xffFFFFFF)),
     );
+
   }
 }

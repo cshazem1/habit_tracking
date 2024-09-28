@@ -1,17 +1,15 @@
 import 'package:device_preview/device_preview.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:habit_tracking/core/routes/app_router.dart';
-import 'package:habit_tracking/features/progress/presentation/progress_view.dart';
-
+import 'package:get/get_navigation/src/root/get_material_app.dart';
+import 'package:habit_tracking/features/login%20screen/presentation/login_screen.dart';
+import 'package:habit_tracking/features/onboarding/presentation/onboardin_view.dart';
+import 'package:habit_tracking/features/register/presentation/register_view.dart';
+import 'package:habit_tracking/features/starting%20page/presentation/starting_view.dart';
 import 'features/timer/presentation/timer_views.dart';
 
 void main() {
-  runApp(DevicePreview(
-      enabled: !kReleaseMode,
-
-      builder: (context ) => MyApp()));
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
@@ -20,22 +18,14 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return  ScreenUtilInit(
+
+    return ScreenUtilInit(
       designSize: const Size(375, 812),
-      minTextAdapt: true,
-      splitScreenMode: true,
-      child: MaterialApp(
-        builder: DevicePreview.appBuilder,
+      child: GetMaterialApp(
+        useInheritedMediaQuery: true,
         locale: DevicePreview.locale(context),
-        onGenerateRoute: AppRouter.onGenerateRoute,
-        debugShowCheckedModeBanner: false,
-        theme: ThemeData(
-          scaffoldBackgroundColor: Colors.white,
-          appBarTheme: const AppBarTheme(
-            backgroundColor: Colors.white,
-          ),
-        ),
-        home: const ProgressView(),
-      ),
-    );
-  }}
+        builder: DevicePreview.appBuilder,
+        theme: ThemeData.light(),
+        darkTheme: ThemeData.dark(),
+        home:  OnboardinView(),
+    ););}}

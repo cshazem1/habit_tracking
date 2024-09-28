@@ -11,6 +11,12 @@ static const TextStyle textMedium12 = TextStyle(
     fontWeight: FontWeight.w500,
     fontFamily: 'Montserrat'
 );
+static const TextStyle textMedium14grey = TextStyle(
+    fontSize: 14,
+    fontWeight: FontWeight.w500,
+    fontFamily: 'Montserrat'
+);
+
 static const TextStyle textMedium16 = TextStyle(
     fontSize: 16,
     fontWeight: FontWeight.w500,

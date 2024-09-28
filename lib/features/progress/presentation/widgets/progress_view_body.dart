@@ -19,10 +19,9 @@ class ProgressViewBody extends StatelessWidget {
           width: double.maxFinite,
             child: ProgressListTile()),
         ProgressChartContainer(),
-        SizedBox(height: 5,),
         Row(
           mainAxisSize: MainAxisSize.max,
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             ProgressCard(num: "3", title: "Best Streak Days"),
             ProgressCard(num: "12", title: "Habit done")

@@ -19,15 +19,12 @@ class ProgressCard extends StatelessWidget {
        color: Colors.grey.shade200,
         borderRadius: BorderRadius.circular(10)
       ),
-      child: SizedBox(
-        height: 100,
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Text(num ,style: Styles.textSemiBold20,),
-            Text(title,style: Styles.textMedium12,)
-          ],
-        ),
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Text(num ,style: Styles.textSemiBold16,),
+          Text(title,style: Styles.textMedium12,)
+        ],
       ),
     );
   }

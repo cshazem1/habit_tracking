@@ -102,7 +102,7 @@ class HabitsBarChart extends StatelessWidget {
         barRods: [
           BarChartRodData(
             toY: habitsPerDay[index].toDouble(),
-            color: Colors.lightBlueAccent,
+            color: Color(0xba5F6CE2),
             width: 20,
             borderRadius: BorderRadius.circular(5),
           ),

@@ -3,12 +3,15 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get_navigation/src/root/get_material_app.dart';
-import 'package:habit_tracking/add_habit.dart';
+import 'package:habit_tracking/core/utlis/constants.dart';
 import 'package:habit_tracking/features/new%20habit/new_habit_view.dart';
+import 'package:hive_flutter/adapters.dart';
 
 import 'core/routes/app_router.dart';
 
-void main() {
+void main() async{
+  await Hive.initFlutter();
+  await Hive.openBox(kHabitsBox);
   runApp(DevicePreview(
     enabled: !kReleaseMode,
     builder: (BuildContext context) {

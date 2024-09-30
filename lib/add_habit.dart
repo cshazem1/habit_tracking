@@ -1,6 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:habit_tracking/core/utlis/styles.dart';
+import 'package:habit_tracking/core/utlis/colors.dart';
+
 
 class CreateCustomHabit extends StatefulWidget {
+  const CreateCustomHabit({super.key});
+
   @override
   _CreateCustomHabitState createState() => _CreateCustomHabitState();
 }
@@ -8,7 +13,6 @@ class CreateCustomHabit extends StatefulWidget {
 class _CreateCustomHabitState extends State<CreateCustomHabit> {
   Color selectedColor = Colors.green; // Default color
   IconData selectedIcon = Icons.accessibility_new; // Default icon
-
   String frequency = 'Every day';
   String repeats = '1 time per day';
   String timer = '30 min';
@@ -245,13 +249,14 @@ class _CreateCustomHabitState extends State<CreateCustomHabit> {
       },
     );
   }
-
   @override
   Widget build(BuildContext context) {
-
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Create custom habit'),
+        title:  const Text('Create custom habit' , style:Styles.textSemiBold16,),
+        centerTitle: true,
+          leading: IconButton(onPressed: () {}, icon: const Icon(Icons.arrow_back))
+
       ),
       body: Padding(
         padding: const EdgeInsets.all(20.0),
@@ -260,8 +265,7 @@ class _CreateCustomHabitState extends State<CreateCustomHabit> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               const Text(
-                'What do you want to do?',
-                style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                'What do you want to do?',style: Styles.textSemiBold16,
               ),
               const SizedBox(height: 5),
               TextField(
@@ -279,7 +283,6 @@ class _CreateCustomHabitState extends State<CreateCustomHabit> {
                     flex: 5,
                     child: ElevatedButton(
                       onPressed: _showColorPicker,
-
                       style: ElevatedButton.styleFrom(
                         foregroundColor: Colors.black,
                         backgroundColor: Colors.white70,
@@ -307,10 +310,7 @@ class _CreateCustomHabitState extends State<CreateCustomHabit> {
                       ),
                     ),
                   ),
-                  const Expanded(
-
-                      child: SizedBox()),
-
+                  const Expanded(child: SizedBox()),
                     Expanded(
                       flex:5 ,
                       child: ElevatedButton(
@@ -326,9 +326,7 @@ class _CreateCustomHabitState extends State<CreateCustomHabit> {
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             Icon(selectedIcon),
-                            const SizedBox(
-                              width: 10,
-                            ),
+                            const SizedBox(width: 10,),
                             const Text('Icon'),
                           ],
                         ),
@@ -338,9 +336,7 @@ class _CreateCustomHabitState extends State<CreateCustomHabit> {
                 ],
               ),
               const SizedBox(height: 24),
-              const Text(
-                'Settings',
-                style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+              const Text('Settings', style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
               ),
               const SizedBox(height: 8),
               settingOption(
@@ -372,18 +368,16 @@ class _CreateCustomHabitState extends State<CreateCustomHabit> {
                 },
               ),
               ElevatedButton(
-                onPressed: () {
-                  // Action for Continue button
-                },
+                onPressed: () {},
                 style: ElevatedButton.styleFrom(
-                  backgroundColor: Colors.blue,
+                  backgroundColor: Color(0xff5F6CE2),
                   padding:
                       const EdgeInsets.symmetric(vertical: 16, horizontal: 24),
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(8),
                   ),
                 ),
-                child: const Center(child: Text('Continue')),
+                child: const Center(child: Text('Continue',style: TextStyle(color:Colors.white ),)),
               ),
             ],
           ),
@@ -397,7 +391,8 @@ class _CreateCustomHabitState extends State<CreateCustomHabit> {
     required String value,
     required VoidCallback onTap,
   }) {
-    return ListTile(
+    return
+      ListTile(
       contentPadding: const EdgeInsets.symmetric(vertical: 10),
       title: Text(title),
       trailing: Row(

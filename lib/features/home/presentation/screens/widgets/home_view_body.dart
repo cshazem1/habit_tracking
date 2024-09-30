@@ -1,10 +1,7 @@
-import 'package:easy_date_timeline/easy_date_timeline.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:habit_tracking/core/utlis/styles.dart';
-import 'package:habit_tracking/features/home/presentation/screens/home_view.dart';
 import 'package:habit_tracking/features/timer/presentation/widgets/custom_item.dart';
-
 import '../../../../../core/routes/app_routes.dart';
 import '../../../../../generated/assets.dart';
 import '../../../../timer/data/models/item_model.dart';
@@ -33,7 +30,7 @@ class HomeViewBody extends StatelessWidget {
             "Today",
             style: Styles.textSemiBold20,
           ),
-          SizedBox(height: 20,),
+          const SizedBox(height: 20,),
           Expanded(
             child: ListView.builder(
                 itemCount: 10,

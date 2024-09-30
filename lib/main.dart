@@ -3,6 +3,8 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get_navigation/src/root/get_material_app.dart';
+import 'package:habit_tracking/add_habit.dart';
+import 'package:habit_tracking/features/new%20habit/new_habit_view.dart';
 
 import 'core/routes/app_router.dart';
 
@@ -10,7 +12,7 @@ void main() {
   runApp(DevicePreview(
     enabled: !kReleaseMode,
     builder: (BuildContext context) {
-      return MyApp();
+      return const MyApp();
     },
   ));
 }
@@ -30,6 +32,9 @@ class MyApp extends StatelessWidget {
           builder: DevicePreview.appBuilder,
           theme: ThemeData.light(),
           darkTheme: ThemeData.dark(),
-        ));
+          home: const NewHabitView(),
+
+        ),
+        );
   }
 }

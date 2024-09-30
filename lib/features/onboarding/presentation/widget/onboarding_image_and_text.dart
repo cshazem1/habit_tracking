@@ -1,8 +1,5 @@
 import 'package:flutter/cupertino.dart';
-
-import '../../../../core/utlis/image_strings.dart';
 import '../../../../core/utlis/styles.dart';
-import '../../../../core/utlis/text_string.dart';
 
 class OnboardingImageAndText extends StatelessWidget {
    OnboardingImageAndText({super.key, required this.image, required this.title, required this.title2, required this.subTitle});

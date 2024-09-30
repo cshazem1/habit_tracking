@@ -1,6 +1,4 @@
 import 'package:flutter/cupertino.dart';
-import 'package:flutter/cupertino.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:habit_tracking/features/onboarding/presentation/manger/onboarding_controller.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 

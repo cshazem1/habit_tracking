@@ -16,7 +16,7 @@ class OnboardingImageAndText extends StatelessWidget {
             height:317,
             image: AssetImage(image),
           ),
-          SizedBox(height: 64,),
+          const SizedBox(height: 64,),
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [

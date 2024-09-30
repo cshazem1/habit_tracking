@@ -1,13 +1,30 @@
 
 import 'dart:ui';
+import 'package:hive/hive.dart';
 
-class HabitsModel {
+part 'habits_model.g.dart';
+
+@HiveType(typeId: 0)
+class HabitsModel extends HiveObject {
+  @HiveField(0)
   String habitName;
+
+  @HiveField(1)
   int habitColor;
+
+  @HiveField(2)
   Image habitIcon;
+
+  @HiveField(3)
   String frequency;
+
+  @HiveField(4)
   String repeat;
+
+  @HiveField(5)
   String time;
+
+  @HiveField(6)
   String reminder;
 
   HabitsModel({

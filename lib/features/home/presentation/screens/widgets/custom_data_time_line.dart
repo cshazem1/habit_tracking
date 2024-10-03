@@ -14,7 +14,7 @@ class DataTimeLine extends StatelessWidget {
 
       initialDate: DateTime.now(),
       onDateChange: (selectedDate) {
-        print(selectedDate.day);
+        // print(selectedDate.day);
         //`selectedDate` the new date selected.
       },
       headerProps: const EasyHeaderProps(

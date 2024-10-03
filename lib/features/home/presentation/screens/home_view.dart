@@ -28,7 +28,7 @@ body: const HomeViewBody(),
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
              Text('Hello $name',style: Styles.textSemiBold24,),
-            Text('May this day be good for you!',style: Styles.textMedium14.copyWith(color: Color(0xff7C84A3)),
+            Text('May this day be good for you!',style: Styles.textMedium14.copyWith(color: const Color(0xff7C84A3)),
 
             ),
           ],

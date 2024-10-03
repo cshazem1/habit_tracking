@@ -19,7 +19,7 @@ class StartingView extends StatelessWidget {
     return Scaffold(
       body: Column(
         children: [
-              StartingImageAndText(
+              const StartingImageAndText(
                 image: TImages.startingImage,
                 title: TTexts.startScreenTitle,
                 title2: TTexts.startScreenTitle0,

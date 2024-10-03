@@ -1,7 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import '../../../../generated/assets.dart';
 
 class CustomIconItem extends StatelessWidget {
   const CustomIconItem({required this.image,

@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:habit_tracking/core/utlis/styles.dart';
-import 'package:habit_tracking/core/utlis/colors.dart';
 
 
 class CreateCustomHabit extends StatefulWidget {
@@ -370,7 +369,7 @@ class _CreateCustomHabitState extends State<CreateCustomHabit> {
               ElevatedButton(
                 onPressed: () {},
                 style: ElevatedButton.styleFrom(
-                  backgroundColor: Color(0xff5F6CE2),
+                  backgroundColor: const Color(0xff5F6CE2),
                   padding:
                       const EdgeInsets.symmetric(vertical: 16, horizontal: 24),
                   shape: RoundedRectangleBorder(

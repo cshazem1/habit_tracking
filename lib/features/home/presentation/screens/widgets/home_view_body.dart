@@ -41,7 +41,7 @@ class HomeViewBody extends StatelessWidget {
                       onTap: () {
                         Navigator.pushNamed(context, AppRoutes.timer);
 
-                        print("object");
+                        // print("object");
                       },
                       child: CustomItem(
                         isHome: true,

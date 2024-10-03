@@ -1,7 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:habit_tracking/features/timer/data/models/item_model.dart';
 import 'package:habit_tracking/features/timer/presentation/widgets/timer_widget.dart';
 
@@ -32,9 +31,9 @@ class TimerViewBody extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           CustomItem(itemModel: items[0]),
-          TimerWidget(),
-          CustomButtonAction(),
-          SizedBox(),
+          const TimerWidget(),
+          const CustomButtonAction(),
+          const SizedBox(),
         ],
       );
     });

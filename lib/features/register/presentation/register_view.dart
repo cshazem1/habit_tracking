@@ -26,7 +26,7 @@ class RegisterView extends StatelessWidget {
             ),
             const ArrowBtn(),
 
-            TitleAndSubtitle(
+            const TitleAndSubtitle(
               title: TTexts.registerTitle,
               subTitle: TTexts.registerSubTitle,
             ),
@@ -52,7 +52,7 @@ class RegisterView extends StatelessWidget {
             const SizedBox(height: 12,),
             LabelBtn(label: "I’m already have an account", onClick: () {
               Navigator.push(context, MaterialPageRoute(builder: (context) {
-              return LoginScreen();
+              return const LoginScreen();
             },));
             },),
           ],

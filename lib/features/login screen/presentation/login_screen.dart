@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:habit_tracking/features/login%20screen/presentation/widgets/arrow_btn.dart';
 import 'package:habit_tracking/features/login%20screen/presentation/widgets/cta_with_label.dart';
@@ -25,7 +24,7 @@ class LoginScreen extends StatelessWidget {
             ),
             const ArrowBtn(),
 
-            TitleAndSubtitle(
+            const TitleAndSubtitle(
               title: TTexts.loginTitle,
               subTitle: TTexts.loginSubTitle,
             ),

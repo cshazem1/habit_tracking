@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:habit_tracking/features/onboarding/presentation/manger/onboarding_controller.dart';
 
@@ -9,12 +8,12 @@ class CircularCtaBtn extends StatelessWidget {
   Widget build(BuildContext context) {
     return ElevatedButton(
       onPressed: () => OnboardingController.instance.nextPage(),
-        child:Icon(Icons.arrow_forward,size: 24,),
         style:ElevatedButton.styleFrom(
-            shape: CircleBorder(),
-            padding: EdgeInsets.all(16),
-            backgroundColor:Color(0xff5F6CE2),
-            foregroundColor: Color(0xffFFFFFF)),
+            shape: const CircleBorder(),
+            padding: const EdgeInsets.all(16),
+            backgroundColor:const Color(0xff5F6CE2),
+            foregroundColor: const Color(0xffFFFFFF)),
+        child:const Icon(Icons.arrow_forward,size: 24,),
     );
 
   }

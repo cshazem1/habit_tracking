@@ -16,7 +16,7 @@ class ProgressView extends StatelessWidget {
           centerTitle: true,
           leading: IconButton(onPressed: () {}, icon: const Icon(Icons.arrow_back))
       ),
-      body:  ProgressViewBody(),
+      body:  const ProgressViewBody(),
     );
   }
 }

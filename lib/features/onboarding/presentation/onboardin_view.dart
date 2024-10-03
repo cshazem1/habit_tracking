@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
 
 import 'package:habit_tracking/core/utlis/text_string.dart';
 import 'package:habit_tracking/features/onboarding/presentation/manger/onboarding_controller.dart';

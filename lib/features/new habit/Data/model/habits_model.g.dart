@@ -19,7 +19,7 @@ class HabitsModelAdapter extends TypeAdapter<HabitsModel> {
     return HabitsModel(
       habitName: fields[0] as String,
       habitColor: fields[1] as int,
-      habitIcon: fields[2] as Image,
+      habitIcon: fields[2] as String,
       frequency: fields[3] as String,
       repeat: fields[4] as String,
       time: fields[5] as String,

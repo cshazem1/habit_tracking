@@ -1,5 +1,3 @@
-
-import 'dart:ui';
 import 'package:hive/hive.dart';
 
 part 'habits_model.g.dart';
@@ -13,7 +11,7 @@ class HabitsModel extends HiveObject {
   int habitColor;
 
   @HiveField(2)
-  Image habitIcon;
+  String habitIcon;
 
   @HiveField(3)
   String frequency;

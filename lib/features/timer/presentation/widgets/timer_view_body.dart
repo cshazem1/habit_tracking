@@ -25,7 +25,7 @@ class TimerViewBody extends StatelessWidget {
                     60)
                 .toString(),
             image: Assets.imagesBagDynamicColor,
-            totalTime: (TimerCubit.get(context).maxTime!).toString()),
+            totalTime: (TimerCubit.get(context).maxTime!).toString(), color: 0),
       ];
       return Column(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,

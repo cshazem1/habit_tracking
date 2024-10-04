@@ -8,7 +8,6 @@ import 'package:habit_tracking/features/new%20habit/Data/model/habits_model.dart
 import 'package:habit_tracking/features/new%20habit/new_habit_view.dart';
 import 'package:hive_flutter/adapters.dart';
 import 'package:provider/provider.dart';
-
 import 'core/routes/app_router.dart';
 
 void main() async{

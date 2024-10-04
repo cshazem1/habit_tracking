@@ -46,13 +46,19 @@ class HabitViewModel extends ChangeNotifier {
     notifyListeners();
   }
 
-  void addHabit() {
+  void deleteHabit(int index) async {
+    _habitsBox?.deleteAt(index);
+    notifyListeners();
+  }
+
+  void addHabit()  {
     final newHabit = HabitsModel(
         habitName: habitName,
         habitColor: selectedColor,
         habitIcon: selectedIcon,
         timer: selectedTimer,
-        reminder: reminder.toString());
+        reminder: reminder.toString()
+    );
 
     _habitsBox?.add(newHabit);
     notifyListeners();

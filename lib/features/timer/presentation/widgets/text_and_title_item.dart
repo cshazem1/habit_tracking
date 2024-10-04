@@ -25,9 +25,7 @@ class TextAndTitleItem extends StatelessWidget {
             )),
         Text(
             isHome ? "start at $subTitle" : "$subTitle/${(int.parse(totalTime) ~/ 60).toString()} min",
-            style: Styles.textMedium10.copyWith(
-              color: const Color(0xff7C84A3),
-            ))
+            style: Styles.textMedium10)
       ],
     );
   }

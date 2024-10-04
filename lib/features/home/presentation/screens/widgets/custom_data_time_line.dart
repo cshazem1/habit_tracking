@@ -7,7 +7,6 @@ class DataTimeLine extends StatelessWidget {
   const DataTimeLine({super.key});
 
 
-
   @override
   Widget build(BuildContext context) {
     return EasyDateTimeLine(

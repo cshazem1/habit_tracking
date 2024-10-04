@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:habit_tracking/features/timer/data/models/item_model.dart';
 import 'package:habit_tracking/features/timer/presentation/widgets/text_and_title_item.dart';
-
 import 'custom_icon_item.dart';
 
 class CustomItem extends StatelessWidget {
@@ -16,11 +15,12 @@ class CustomItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.symmetric(horizontal: 16.w),
+    margin: EdgeInsets.symmetric(horizontal: 16.w),
       padding: EdgeInsets.symmetric(horizontal: 16.w),
       decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(16),
-          color: const Color(0xffF8F8F8)),
+          color:  const Color(0xffF8F8F8)
+      ),
       child: SizedBox(
         height: 64.h,
         child: Row(
@@ -33,6 +33,7 @@ class CustomItem extends StatelessWidget {
                   height: 48.h,
                   width: 48.w,
                   child: CustomIconItem(
+                    color: itemModel.color,
                     image: itemModel.image,
                   ),
                 ),
@@ -49,7 +50,8 @@ class CustomItem extends StatelessWidget {
             ),
             isHome
                 ? GestureDetector(
-                  onTap: () {},
+                  onTap: () {
+                  },
                   child: Container(
                       width: 24.w,
                       height: 24.h,

@@ -50,6 +50,7 @@ class HomeViewBody extends StatelessWidget {
                       child: CustomItem(
                         isHome: true,
                         itemModel: ItemModel(
+                            color: habit.habitColor,
                             title: habit.habitName,
                             subTitle: habit.reminder,
                             image: habit.habitIcon,

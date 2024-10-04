@@ -2,7 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:habit_tracking/core/utlis/styles.dart';
-import 'package:habit_tracking/features/new%20habit/presentation/widgets/new_habit_view_body.dart';
+import 'package:habit_tracking/features/new%20habit/presentation/widgets/add_habit.dart';
 
 class NewHabitView extends StatelessWidget {
   const NewHabitView({super.key});
@@ -15,7 +15,7 @@ class NewHabitView extends StatelessWidget {
           centerTitle: true,
           leading: IconButton(onPressed: () {}, icon: const Icon(Icons.arrow_back)),
       ),
-      body:  NewHabitViewBody(),
+      body:  const CreateCustomHabit(),
 
     );
   }

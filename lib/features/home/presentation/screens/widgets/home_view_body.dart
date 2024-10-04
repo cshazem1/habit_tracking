@@ -3,6 +3,8 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:habit_tracking/core/utlis/styles.dart';
 import 'package:habit_tracking/features/new%20habit/Data/model/habit_view_model.dart';
 import 'package:provider/provider.dart';
+import '../../../../timer/data/models/item_model.dart';
+import '../../../../timer/presentation/widgets/custom_item.dart';
 import 'custom_data_time_line.dart';
 
 class HomeViewBody extends StatelessWidget {
@@ -38,37 +40,24 @@ class HomeViewBody extends StatelessWidget {
                 itemCount: habitsList.length,
                 itemBuilder: (context, index) {
                   final habit = habitsList[index];
-                  return ListTile(
-                    leading: Image.asset(habit.habitIcon ,scale: 2,),
-                    title: Text(habit.habitName),
-                    subtitle: Text("Timer: ${habit.timer}  min   \n Reminder: ${habit.reminder}"),
-                    trailing: Container(
-                      width: 20,
-                      height: 20,
-                      color: Color(habit.habitColor),
+                  return Padding(
+                    padding: const EdgeInsets.symmetric(vertical: 8.0),
+                    child: GestureDetector(
+                      onTap: () {
+                        // Navigator.pushNamed(context, AppRoutes.timer);
+                        // print("object");
+                      },
+                      child: CustomItem(
+                        isHome: true,
+                        itemModel: ItemModel(
+                            title: habit.habitName,
+                            subTitle: habit.reminder,
+                            image: habit.habitIcon,
+                            totalTime: habit.timer), ),
                     ),
-
                   );
-                  // return Padding(
-                  //   padding: const EdgeInsets.symmetric(vertical: 8.0),
-                  //   child: GestureDetector(
-                  //     onTap: () {
-                  //       Navigator.pushNamed(context, AppRoutes.timer);
-                  //
-                  //       // print("object");
-                  //     },
-                  //     child: CustomItem(
-                  //       isHome: true,
-                  //       itemModel: ItemModel(
-                  //           title: "Read a book ",
-                  //           subTitle: " 9:30 am",
-                  //           image: Assets.imagesBagDynamicColor,
-                  //           totalTime: "10"), ),
-                  //   ),
-                  // );
                 }),
           ),
-
 
         ],
       ),

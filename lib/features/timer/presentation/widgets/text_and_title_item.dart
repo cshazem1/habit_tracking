@@ -19,7 +19,7 @@ class TextAndTitleItem extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.center,
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text(isHome ? "${"${title}for$totalTime"} minutes" : title,
+        Text(isHome ? "${"${title} \n for$totalTime"} minutes" : title,
             style: Styles.textMedium12.copyWith(
               color: const Color(0xff2F3138),
             )),

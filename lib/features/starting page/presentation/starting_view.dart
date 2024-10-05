@@ -33,14 +33,14 @@ class StartingView extends StatelessWidget {
                 children: [
                   CtaBtn(label: 'Continue', onClick:() {
                     Navigator.push(context, MaterialPageRoute(builder: (context) {
-                      return const RegisterView();
+                      return RegisterView();
                     },)); } ,
                   ),
                   const SizedBox(height: 16),
                   LabelBtn(
                     label: "Already have an account", onClick: () {
                       Navigator.push(context, MaterialPageRoute(builder: (context) {
-                    return const LoginScreen();
+                    return LoginScreen();
                   },)); },
                   ),
                 ],

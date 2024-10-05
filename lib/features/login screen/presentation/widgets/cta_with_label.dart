@@ -4,8 +4,9 @@ import 'package:flutter/material.dart';
 import '../../../../core/utlis/styles.dart';
 
 class CtaWithLabel extends StatelessWidget {
-  const CtaWithLabel({super.key, required this.label});
+  const CtaWithLabel({super.key, required this.label, required this.onPressed});
   final String label;
+  final  void Function() onPressed;
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -15,7 +16,7 @@ class CtaWithLabel extends StatelessWidget {
           height: 48,
           width: double.infinity,
           child: OutlinedButton.icon(
-            onPressed: () {},
+            onPressed: onPressed,
             icon: const Icon(
               Icons.g_mobiledata_rounded,
               size: 32,

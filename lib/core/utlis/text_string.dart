@@ -26,4 +26,5 @@ class TTexts {
   static const String loginTitle = 'Welcome back';
   static const String loginSubTitle = 'We’re excited to see you again! let’s make progress together!';
 
+
 }

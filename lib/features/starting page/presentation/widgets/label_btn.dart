@@ -1,6 +1,4 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-
 import '../../../../core/utlis/styles.dart';
 
 class LabelBtn extends StatelessWidget {

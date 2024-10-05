@@ -1,11 +1,8 @@
 import 'package:flutter/cupertino.dart';
-
-import '../../../../core/utlis/image_strings.dart';
 import '../../../../core/utlis/styles.dart';
-import '../../../../core/utlis/text_string.dart';
 
 class TitleAndSubtitle extends StatelessWidget {
-  TitleAndSubtitle({super.key, required this.title, required this.subTitle});
+  const TitleAndSubtitle({super.key, required this.title, required this.subTitle});
   final String title, subTitle;
 
   @override

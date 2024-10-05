@@ -1,26 +1,29 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:habit_tracking/features/new%20habit/Data/model/habits_model.dart';
 import 'package:habit_tracking/features/timer/data/models/item_model.dart';
 import 'package:habit_tracking/features/timer/presentation/widgets/text_and_title_item.dart';
-
 import 'custom_icon_item.dart';
 
 class CustomItem extends StatelessWidget {
   const CustomItem({
-    required this.itemModel,
+    required this.onTap,
+    required this.habit,
     this.isHome = false,
     super.key,
   });
-  final ItemModel itemModel;
+  final HabitsModel habit;
   final bool isHome;
+final Function()? onTap;
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.symmetric(horizontal: 16.w),
+    margin: EdgeInsets.symmetric(horizontal: 16.w),
       padding: EdgeInsets.symmetric(horizontal: 16.w),
       decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(16),
-          color: const Color(0xffF8F8F8)),
+          color:  const Color(0xffF8F8F8)
+      ),
       child: SizedBox(
         height: 64.h,
         child: Row(
@@ -33,7 +36,8 @@ class CustomItem extends StatelessWidget {
                   height: 48.h,
                   width: 48.w,
                   child: CustomIconItem(
-                    image: itemModel.image,
+                    color: habit.habitColor,
+                    image: habit.habitIcon,
                   ),
                 ),
                 SizedBox(
@@ -41,15 +45,15 @@ class CustomItem extends StatelessWidget {
                 ),
                 TextAndTitleItem(
                   isHome: isHome,
-                  title: itemModel.title,
-                  subTitle: itemModel.subTitle,
-                  totalTime: itemModel.totalTime,
+                  title: habit.habitName,
+                  subTitle: habit.reminder,
+                  totalTime: habit.timer,
                 )
               ],
             ),
             isHome
                 ? GestureDetector(
-                  onTap: () {},
+                  onTap: onTap,
                   child: Container(
                       width: 24.w,
                       height: 24.h,

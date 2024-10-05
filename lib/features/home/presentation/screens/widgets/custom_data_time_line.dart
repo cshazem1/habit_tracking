@@ -7,14 +7,13 @@ class DataTimeLine extends StatelessWidget {
   const DataTimeLine({super.key});
 
 
-
   @override
   Widget build(BuildContext context) {
     return EasyDateTimeLine(
 
       initialDate: DateTime.now(),
       onDateChange: (selectedDate) {
-        print(selectedDate.day);
+        // print(selectedDate.day);
         //`selectedDate` the new date selected.
       },
       headerProps: const EasyHeaderProps(

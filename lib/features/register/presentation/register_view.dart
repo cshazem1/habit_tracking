@@ -1,6 +1,4 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:habit_tracking/features/auth/presentation/screens/login/login_view.dart';
 import 'package:habit_tracking/features/login%20screen/presentation/login_screen.dart';
 import 'package:habit_tracking/features/login%20screen/presentation/widgets/arrow_btn.dart';
 import 'package:habit_tracking/features/login%20screen/presentation/widgets/cta_with_label.dart';
@@ -18,6 +16,7 @@ class RegisterView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+
       body: Padding(
         padding: const EdgeInsets.all(0),
         child: Column(
@@ -26,9 +25,8 @@ class RegisterView extends StatelessWidget {
             const SizedBox(
               height: 40,
             ),
-            const ArrowBtn(),
 
-            TitleAndSubtitle(
+            const TitleAndSubtitle(
               title: TTexts.registerTitle,
               subTitle: TTexts.registerSubTitle,
             ),
@@ -53,8 +51,8 @@ class RegisterView extends StatelessWidget {
             const CtaWithLabel(label: 'Signed up with Google'),
             const SizedBox(height: 12,),
             LabelBtn(label: "I’m already have an account", onClick: () {
-              Navigator.push(context, MaterialPageRoute(builder: (context) {
-              return LoginScreen();
+              Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) {
+              return const LoginScreen();
             },));
             },),
           ],

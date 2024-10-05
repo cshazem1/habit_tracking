@@ -1,13 +1,10 @@
 import 'package:flutter/cupertino.dart';
-
-import '../../../../core/utlis/image_strings.dart';
 import '../../../../core/utlis/styles.dart';
-import '../../../../core/utlis/text_string.dart';
 
 class StartingImageAndText extends StatelessWidget {
-   StartingImageAndText({super.key, required this.image, required this.title, required this.title2, required this.subTitle});
+   const StartingImageAndText({super.key, required this.image, required this.title, required this.title2, required this.subTitle});
   final String image, title, subTitle;
-  String title2;
+  final String title2;
 
   @override
   Widget build(BuildContext context) {
@@ -19,7 +16,7 @@ class StartingImageAndText extends StatelessWidget {
             height:317,
             image: AssetImage(image),
           ),
-          SizedBox(height: 64,),
+          const SizedBox(height: 64,),
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [

@@ -32,14 +32,14 @@ class MyApp extends StatelessWidget {
       create: (context) => HabitViewModel(),
       child: ScreenUtilInit(
           designSize: const Size(375, 812),
-          child: GetMaterialApp(
+          child: MaterialApp(
+            debugShowCheckedModeBanner: false,
             onGenerateRoute: AppRouter.onGenerateRoute,
             useInheritedMediaQuery: true,
             locale: DevicePreview.locale(context),
             builder: DevicePreview.appBuilder,
             theme: ThemeData.light(),
             darkTheme: ThemeData.dark(),
-            home: const NewHabitView(),
 
           ),
           ),

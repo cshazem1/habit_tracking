@@ -47,7 +47,7 @@ class HabitViewModel extends ChangeNotifier {
   }
 
   void deleteHabit(int index) async {
-    _habitsBox?.deleteAt(index);
+   await _habitsBox?.deleteAt(index);
     notifyListeners();
   }
 

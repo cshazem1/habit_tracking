@@ -7,7 +7,7 @@ class CircularCtaBtn extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ElevatedButton(
-      onPressed: () => OnboardingController.instance.nextPage(),
+      onPressed: () => OnboardingController.instance.nextPage(context),
         style:ElevatedButton.styleFrom(
             shape: const CircleBorder(),
             padding: const EdgeInsets.all(16),

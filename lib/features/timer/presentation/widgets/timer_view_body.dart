@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:habit_tracking/features/new%20habit/Data/model/habits_model.dart';
 import 'package:habit_tracking/features/timer/data/models/item_model.dart';
 import 'package:habit_tracking/features/timer/presentation/widgets/timer_widget.dart';
 
@@ -30,10 +31,14 @@ class TimerViewBody extends StatelessWidget {
       return Column(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          CustomItem(itemModel: items[0]),
-          const TimerWidget(),
-          const CustomButtonAction(),
-          const SizedBox(),
+          CustomItem(
+              onTap: () {
+
+              },
+              habit: HabitsModel(habitName: "habitName", habitColor: 0, habitIcon: "habitIcon", timer: "timer", reminder: "reminder")),
+            TimerWidget(),
+            CustomButtonAction(),
+            SizedBox(),
         ],
       );
     });

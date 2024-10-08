@@ -5,6 +5,8 @@ import 'package:habit_tracking/features/new%20habit/Data/model/habit_view_model.
 import 'package:habit_tracking/generated/assets.dart';
 import 'package:provider/provider.dart';
 
+import '../../../../core/routes/app_routes.dart';
+
 
 class CreateCustomHabit extends StatelessWidget {
    const CreateCustomHabit({super.key});
@@ -118,10 +120,15 @@ class CreateCustomHabit extends StatelessWidget {
               ElevatedButton(
                 onPressed: () {
                   viewModel.addHabit();
+<<<<<<< HEAD
                   Navigator.pop(context);
                   Navigator.push(context, MaterialPageRoute(builder: (context) =>
                   const HomeView()
                   ));
+=======
+
+                Navigator.pushReplacementNamed(context, AppRoutes.home);
+>>>>>>> master
                 },
                 style: ElevatedButton.styleFrom(
                   backgroundColor: const Color(0xff5F6CE2),
@@ -322,6 +329,10 @@ class CreateCustomHabit extends StatelessWidget {
    //show time fnc
    void _pickReminderTime (BuildContext context , HabitViewModel viewModel){
     showTimePicker(
+<<<<<<< HEAD
+=======
+
+>>>>>>> master
         context: context,
         initialTime: TimeOfDay.fromDateTime(viewModel.reminder)
     ).then((selectedTime){

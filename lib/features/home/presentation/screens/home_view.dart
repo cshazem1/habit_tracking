@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:habit_tracking/core/routes/app_routes.dart';
 import 'package:habit_tracking/features/home/presentation/screens/widgets/home_view_body.dart';
 
 import '../../../../core/utlis/styles.dart';
@@ -11,6 +12,7 @@ class HomeView extends StatelessWidget {
   Widget build(BuildContext context) {
     return  Scaffold(
       appBar: CustomAppBarHome(name: "Hazem",onPressedAdd: (){
+Navigator.pushNamed(context, AppRoutes.newHabitView);
       },
 
       ),

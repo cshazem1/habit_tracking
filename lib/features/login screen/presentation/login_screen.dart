@@ -22,7 +22,6 @@ class LoginScreen extends StatelessWidget {
             const SizedBox(
               height: 40,
             ),
-            const ArrowBtn(),
 
             const TitleAndSubtitle(
               title: TTexts.loginTitle,
@@ -45,7 +44,9 @@ class LoginScreen extends StatelessWidget {
             const CtaWithLabel(label: 'Signed in with Google'),
             const SizedBox(height: 12,),
             LabelBtn(label: "Don’t have account? Sign up", onClick: () {
-              Navigator.push(context, MaterialPageRoute(builder: (context) {
+              Navigator.pushReplacement(
+
+                  context, MaterialPageRoute(builder: (context) {
                 return const RegisterView();
               },));
             },),

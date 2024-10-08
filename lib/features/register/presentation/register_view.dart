@@ -16,6 +16,7 @@ class RegisterView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+
       body: Padding(
         padding: const EdgeInsets.all(0),
         child: Column(
@@ -24,7 +25,6 @@ class RegisterView extends StatelessWidget {
             const SizedBox(
               height: 40,
             ),
-            const ArrowBtn(),
 
             const TitleAndSubtitle(
               title: TTexts.registerTitle,
@@ -51,7 +51,7 @@ class RegisterView extends StatelessWidget {
             const CtaWithLabel(label: 'Signed up with Google'),
             const SizedBox(height: 12,),
             LabelBtn(label: "I’m already have an account", onClick: () {
-              Navigator.push(context, MaterialPageRoute(builder: (context) {
+              Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) {
               return const LoginScreen();
             },));
             },),

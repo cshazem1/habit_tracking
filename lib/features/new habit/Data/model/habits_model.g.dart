@@ -17,28 +17,17 @@ class HabitsModelAdapter extends TypeAdapter<HabitsModel> {
       for (int i = 0; i < numOfFields; i++) reader.readByte(): reader.read(),
     };
     return HabitsModel(
-      habitName: fields[0] as String,
-      habitColor: fields[1] as int,
-      habitIcon: fields[2] as String,
-      timer: fields[3] as String,
-      reminder: fields[4] as String,
+      habits: (fields[0] as Map).map((dynamic k, dynamic v) =>
+          MapEntry(k as DateTime, (v as List).cast<HabitFinalModel>())),
     );
   }
 
   @override
   void write(BinaryWriter writer, HabitsModel obj) {
     writer
-      ..writeByte(5)
-      ..writeByte(0)
-      ..write(obj.habitName)
       ..writeByte(1)
-      ..write(obj.habitColor)
-      ..writeByte(2)
-      ..write(obj.habitIcon)
-      ..writeByte(3)
-      ..write(obj.timer)
-      ..writeByte(4)
-      ..write(obj.reminder);
+      ..writeByte(0)
+      ..write(obj.habits);
   }
 
   @override

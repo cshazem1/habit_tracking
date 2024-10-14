@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:habit_tracking/core/utlis/styles.dart';
+import 'package:habit_tracking/features/home/presentation/manager/home_cubit.dart';
 import 'package:habit_tracking/features/home/presentation/screens/home_view.dart';
 import 'package:habit_tracking/features/new%20habit/Data/model/habit_view_model.dart';
 import 'package:habit_tracking/generated/assets.dart';
@@ -25,9 +26,14 @@ class CreateCustomHabit extends StatelessWidget {
               ),
               const SizedBox(height: 5),
               TextField(
+                maxLines: 4,
+                minLines: 1,
                 decoration: InputDecoration(
+
+                  prefixIcon:  Icon(Icons.note),
                   hintText: 'Name of habit',
                   border: OutlineInputBorder(
+
                     borderRadius: BorderRadius.circular(12),
                   ),
                 ),
@@ -119,7 +125,7 @@ class CreateCustomHabit extends StatelessWidget {
               ),
               ElevatedButton(
                 onPressed: () {
-                  viewModel.addHabit();
+                  viewModel.addHabit(HomeCubit.get(context).userSelectedDate??DateTime.now());
 
                 Navigator.pushReplacementNamed(context, AppRoutes.home);
                 },
@@ -329,7 +335,7 @@ class CreateCustomHabit extends StatelessWidget {
       if(selectedTime != null ){
         final now = DateTime.now();
         final reminderTime = DateTime
-          (now.year,now.month ,now.day ,selectedTime.hour , selectedTime.minute);
+          (now.year,now.month ,now.day);
         viewModel.setHabitReminder(reminderTime);
       }
     });

@@ -1,13 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:habit_tracking/features/home/presentation/manager/home_cubit.dart';
 
 import '../manager/timer_cubit/timer_cubit.dart';
 import 'custom_circle_button.dart';
 
 class CustomButtonAction extends StatelessWidget {
-  const CustomButtonAction({super.key});
-
+  const CustomButtonAction({super.key,required this.index});
+final int index;
   @override
   Widget build(BuildContext context) {
     return Row(
@@ -44,7 +45,8 @@ class CustomButtonAction extends StatelessWidget {
         ),
         CustomCircleButton(
           onTap: () {
-
+HomeCubit.get(context).checkHabit(index);
+Navigator.pop(context);
           },
           icon: Icon(
             Icons.check,

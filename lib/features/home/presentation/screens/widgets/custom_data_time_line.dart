@@ -1,5 +1,6 @@
 import 'package:easy_date_timeline/easy_date_timeline.dart';
 import 'package:flutter/material.dart';
+import 'package:habit_tracking/features/home/presentation/manager/home_cubit.dart';
 
 import '../../../../../core/utlis/styles.dart';
 
@@ -11,8 +12,12 @@ class DataTimeLine extends StatelessWidget {
   Widget build(BuildContext context) {
     return EasyDateTimeLine(
 
-      initialDate: DateTime.now(),
+      initialDate: HomeCubit.get(context).userSelectedDate??DateTime.now(),
       onDateChange: (selectedDate) {
+        final data = selectedDate;
+        final reminderTime = DateTime
+          (data.year,data.month ,data.day);
+        HomeCubit.get(context).selectDate(selectedDate);
         // print(selectedDate.day);
         //`selectedDate` the new date selected.
       },

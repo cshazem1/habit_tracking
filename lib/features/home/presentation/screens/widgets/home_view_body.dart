@@ -5,10 +5,8 @@ import 'package:habit_tracking/core/utlis/styles.dart';
 import 'package:habit_tracking/features/home/presentation/manager/home_cubit.dart';
 import 'package:habit_tracking/features/new%20habit/Data/model/habit_view_model.dart';
 import 'package:habit_tracking/features/new%20habit/Data/model/habits_final_model.dart';
-import 'package:habit_tracking/features/new%20habit/Data/model/habits_model.dart';
 import 'package:provider/provider.dart';
 import '../../../../../core/routes/app_routes.dart';
-import '../../../../timer/data/models/item_model.dart';
 import 'custom_item.dart';
 import 'custom_data_time_line.dart';
 
@@ -24,7 +22,6 @@ class HomeViewBody extends StatefulWidget {
 class _HomeViewBodyState extends State<HomeViewBody> {
   @override
   Widget build(BuildContext context) {
-    final viewModel = Provider.of<HabitViewModel>(context);
     return BlocBuilder<HomeCubit, HomeState>(
       builder: (context, state) {
         HomeCubit cubit = HomeCubit.get(context);
@@ -55,29 +52,44 @@ class _HomeViewBodyState extends State<HomeViewBody> {
                         "There is no Habits yet! ",
                         style: Styles.textSemiBold16,
                       ))
-                    : ListView.builder(
-                        itemCount: cubit.habitFinalModel?.length ?? 0,
-                        itemBuilder: (context, index) {
-                          HabitFinalModel habit = cubit.habitFinalModel![index];
-                          return habit.isCompleted
-                              ? Opacity(
-                                  opacity: .2,
-                                  child: build_custom_habit(
-                                      context, habit, cubit, index))
-                              : GestureDetector(
-                            onLongPress: (){
-                               showModalBottomSheet(context: context, builder: (context) {
-                                return Container(
-                                  padding: EdgeInsets.all(20),
-                                    decoration: BoxDecoration(borderRadius: BorderRadius.all(Radius.circular(10))),
-                                    child: Text(habit.habitName,style: Styles.textSemiBold16,));
-                              },);
-                            },
-                            onTap: () =>           Navigator.pushNamed(context, AppRoutes.timer, arguments: {'index': index, 'habit': habit}),
-                                child: build_custom_habit(
-                                    context, habit, cubit, index),
-                              );
-                        }),
+                    : ChangeNotifierProvider(
+                      create: (BuildContext context)=> HabitViewModel(),
+                      child: ListView.builder(
+                          itemCount: cubit.habitFinalModel?.length ?? 0,
+                          itemBuilder: (context, index) {
+                            HabitFinalModel habit = cubit.habitFinalModel![index];
+                            return habit.isCompleted
+                                ? Opacity(
+                                    opacity: .2,
+                                    child: build_custom_habit(
+                                        context, habit, cubit, index))
+                                : GestureDetector(
+                                    onLongPress: () {
+                                      showModalBottomSheet(
+                                        context: context,
+                                        builder: (context) {
+                                          return Container(
+                                              padding: const EdgeInsets.all(20),
+                                              decoration: const BoxDecoration(
+                                                  borderRadius: BorderRadius.all(
+                                                      Radius.circular(10))),
+                                              child: Text(
+                                                habit.habitName,
+                                                style: Styles.textSemiBold16,
+                                              ));
+                                        },
+                                      );
+                                    },
+                                    onTap: () => Navigator.pushNamed(
+                                        context, AppRoutes.timer, arguments: {
+                                      'index': index,
+                                      'habit': habit
+                                    }),
+                                    child: build_custom_habit(
+                                        context, habit, cubit, index),
+                                  );
+                          }),
+                    ),
               ),
             ],
           ),
@@ -94,11 +106,15 @@ class _HomeViewBodyState extends State<HomeViewBody> {
           onCheck: () {
             cubit.checkHabit(index);
           },
-          onEdit: () {},
+          onEdit: () {
+            print("object");
+            Navigator.pushNamed(context, AppRoutes.newHabitView,
+                arguments: {'index': index, 'habit': habit});
+
+          },
           onDelete: () {
             cubit.removeHabit(index);
 
-            //   cubit.removeHabit(index);
             setState(() {});
           },
           isHome: true,

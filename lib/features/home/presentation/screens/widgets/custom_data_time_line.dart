@@ -15,9 +15,10 @@ class DataTimeLine extends StatelessWidget {
       initialDate: HomeCubit.get(context).userSelectedDate??DateTime.now(),
       onDateChange: (selectedDate) {
         final data = selectedDate;
-        final reminderTime = DateTime
           (data.year,data.month ,data.day);
         HomeCubit.get(context).selectDate(selectedDate);
+        HomeCubit.get(context).isCompleted(selectedDate);
+
         // print(selectedDate.day);
         //`selectedDate` the new date selected.
       },

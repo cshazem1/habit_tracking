@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:habit_tracking/features/timer/presentation/manager/timer_cubit/timer_cubit.dart';
 import 'package:habit_tracking/features/timer/presentation/widgets/text_and_title_item.dart';
@@ -42,7 +41,17 @@ class _CustomItemState extends State<CustomItem>
     return widget.isHome ? Dismissible(
 
       confirmDismiss: (direction) async {
-        return direction == DismissDirection.endToStart;
+
+
+        if (direction == DismissDirection.endToStart) {
+
+          widget.onDelete!();
+        }
+
+        else if (direction == DismissDirection.startToEnd) {
+          widget.onEdit!();
+        }
+
       },
       secondaryBackground: Container(
         color: Colors.red,
@@ -60,13 +69,9 @@ class _CustomItemState extends State<CustomItem>
 
 
       onDismissed: (direction) {
-        if (direction == DismissDirection.endToStart) {
-          widget.onDelete!();
-        }
+        print(direction);
 
-        if (direction == DismissDirection.startToEnd) {
-          widget.onEdit!();
-        }
+
       },
       child: buildContainer(cubit),
     ): buildContainer(cubit);

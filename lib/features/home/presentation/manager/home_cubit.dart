@@ -7,36 +7,81 @@ import '../../../new habit/Data/model/habit_view_model.dart';
 
 part 'home_state.dart';
 
+class IsCompleted {
+  int completed = 0;
+  int incomplete = 0;
+
+  IsCompleted({required this.completed, required this.incomplete});
+}
+
 class HomeCubit extends Cubit<HomeState> {
   HomeCubit() : super(HomeInitial());
-  static HomeCubit get (context)=>BlocProvider.of<HomeCubit>(context);
-  DateTime ?userSelectedDate;
+  static HomeCubit get(context) => BlocProvider.of<HomeCubit>(context);
+  DateTime? userSelectedDate;
   List<HabitFinalModel>? habitFinalModel;
-  selectDate(DateTime selectedDate){
+
+  List<HabitFinalModel>? isComplete;
+
+  Map<int, IsCompleted> isCompletedList = {};
+
+  void isCompleted(DateTime start) {
+    isCompletedList = {};
+    int completed = 0;
+    int incomplete = 0;
+
+    for (int i = 0; i < 7; i++) {
+      isCompletedList[i] ??= IsCompleted(completed: 0, incomplete: 0);
+
+      DateTime selectDate = start.add(Duration(days: i));
+      for (var element in HabitViewModel.habitsBox!.values) {
+        if (element.habits.containsKey(selectDate)) {
+          isComplete = element.habits[selectDate];
+          for (int j = 0; j < isComplete!.length; j++) {
+            if (isComplete![j].isCompleted) {
+              isCompletedList[i]!.completed++;
+              completed++;
+            } else {
+              isCompletedList[i]!.incomplete++;
+              incomplete++;
+            }
+          }
+        }
+      }
+    }
+    print("completed:$completed");
+    print("incomplete:$incomplete");
+    isCompletedList.forEach(
+      (key, value) {
+        print("$key: ${value.completed} / ${value.incomplete}");
+      },
+    );
+  }
+
+  selectDate(DateTime selectedDate) {
     print(selectedDate);
     emit(SelectDateLoading());
-    userSelectedDate=selectedDate;
+    userSelectedDate = selectedDate;
+
     for (var element in HabitViewModel.habitsBox!.values) {
-      if(element.habits.containsKey(selectedDate)){
-        habitFinalModel=element.habits[selectedDate];
+      if (element.habits.containsKey(selectedDate)) {
+        habitFinalModel = element.habits[selectedDate];
+
         emit(SelectDateSuccess());
 
         return;
       }
-      habitFinalModel=[];
+      habitFinalModel = [];
       emit(SelectDateSuccess());
-
     }
 
     print(habitFinalModel);
-
-
   }
+
   removeHabit(int index) async {
     emit(RemoveHabitLoading());
-    for(var habit in HabitViewModel.habitsBox!.values){
-      if(habit.habits.containsKey(userSelectedDate)){
-        List<HabitFinalModel>? list=habit.habits[userSelectedDate];
+    for (var habit in HabitViewModel.habitsBox!.values) {
+      if (habit.habits.containsKey(userSelectedDate)) {
+        List<HabitFinalModel>? list = habit.habits[userSelectedDate];
         list?.removeAt(index);
         HabitViewModel.habitsBox?.putAt(HabitViewModel.habitsBox!.values.toList().indexOf(habit), habit);
         return;
@@ -48,17 +93,20 @@ class HomeCubit extends Cubit<HomeState> {
 
   checkHabit(int index) async {
     emit(CheckHabitLoading());
-    for(var habit in HabitViewModel.habitsBox!.values){
-      if(habit.habits.containsKey(userSelectedDate)){
-        List<HabitFinalModel>? list=habit.habits[userSelectedDate];
-        bool check=  list?[index].isCompleted??false;
-        list?[index].isCompleted= !check;
-        HabitViewModel.habitsBox?.putAt(HabitViewModel.habitsBox!.values.toList().indexOf(habit), habit);
+    for (var habit in HabitViewModel.habitsBox!.values) {
+      if (habit.habits.containsKey(userSelectedDate)) {
+        List<HabitFinalModel>? list = habit.habits[userSelectedDate];
+        bool check = list?[index].isCompleted ?? false;
+        list?[index].isCompleted = !check;
+        HabitViewModel.habitsBox?.putAt(
+            HabitViewModel.habitsBox!.values.toList().indexOf(habit), habit);
         return;
       }
       emit(CheckHabitSuccess());
     }
-
   }
+void refresh() {
+    emit(CheckHabitSuccess());
 
+}
 }

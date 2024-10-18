@@ -17,14 +17,11 @@ class HabitViewModel extends ChangeNotifier {
   // final Box<HabitsModel> _habitBox = Hive.box<HabitsModel>('habits');
   HabitViewModel() {
     final now = DateTime.now();
-    final reminderTime = DateTime
-      (now.year,now.month ,now.day);
+    final reminderTime = DateTime(now.year, now.month, now.day);
     habitsBox = Hive.box<HabitsModel>('habits');
-    for(var element in habitsBox!.values){
+    for (var element in habitsBox!.values) {
       print(element.habits[reminderTime]?.length);
     }
-
-
   }
 
   void setHabitName(String name) {
@@ -58,7 +55,6 @@ class HabitViewModel extends ChangeNotifier {
   }
 
   void addHabit(DateTime date) {
-
     HabitsModel newHabit = HabitsModel(habits: {
       date: [
         HabitFinalModel(
@@ -69,10 +65,10 @@ class HabitViewModel extends ChangeNotifier {
             reminder: reminder.toString())
       ]
     });
-    Set<HabitsModel>? habitFinalModel=habitsBox?.values.toSet();
-    for(var element in habitFinalModel!) {
-      if(element.habits.containsKey(date)){
-        List<HabitFinalModel>? list=element.habits[date];
+    Set<HabitsModel>? habitFinalModel = habitsBox?.values.toSet();
+    for (var element in habitFinalModel!) {
+      if (element.habits.containsKey(date)) {
+        List<HabitFinalModel>? list = element.habits[date];
         list?.add(HabitFinalModel(
             habitName: habitName,
             habitColor: selectedColor,
@@ -84,14 +80,12 @@ class HabitViewModel extends ChangeNotifier {
         notifyListeners();
         return;
       }
-
-
-
-
+      notifyListeners();
 
     }
     habitsBox?.add(newHabit);
     notifyListeners();
+  }
 
   }
 
@@ -100,10 +94,10 @@ class HabitViewModel extends ChangeNotifier {
 
 
 
-  removeHabit(DateTime date,int index) async {
-    for(var habit in habitsBox!.values){
-      if(habit.habits.containsKey(date)){
-        List<HabitFinalModel>? list=habit.habits[date];
+  removeHabit(DateTime date, int index) async {
+    for (var habit in habitsBox!.values) {
+      if (habit.habits.containsKey(date)) {
+        List<HabitFinalModel>? list = habit.habits[date];
         list?.removeAt(index);
         habitsBox?.putAt(habitsBox!.values.toList().indexOf(habit), habit);
         notifyListeners();
@@ -113,15 +107,7 @@ class HabitViewModel extends ChangeNotifier {
 
   }
 
-
-
-
-  List<HabitFinalModel>? getHabitByDate(DateTime date) {
-
-
-
-  }
-
+  List<HabitFinalModel>? getHabitByDate(DateTime date) {}
 
   List<HabitsModel> get habits => habitsBox?.values.toList() ?? [];
 }

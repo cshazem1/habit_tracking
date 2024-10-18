@@ -15,9 +15,9 @@ android {
         targetCompatibility = JavaVersion.VERSION_1_8
     }
 
-    kotlinOptions {
-        jvmTarget = JavaVersion.VERSION_1_8
-    }
+//    kotlinOptions {
+//        jvmTarget = JavaVersion.VERSION_1_8
+//    }
 
     defaultConfig {
         // TODO: Specify your own unique Application ID (https://developer.android.com/studio/build/application-id.html).
@@ -28,14 +28,6 @@ android {
         targetSdk = flutter.targetSdkVersion
         versionCode = flutter.versionCode
         versionName = flutter.versionName
-    }
-    signingConfigs {
-        debug {
-            storeFile file('C:\\Users\\AQ\\.android\\debug.keystore')
-            storePassword 'hazem123'
-            keyAlias 'androiddebugkey'
-            keyPassword 'hazem123'
-        }
     }
 
     buildTypes {

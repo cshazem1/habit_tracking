@@ -3,10 +3,8 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:get/get_navigation/src/root/get_material_app.dart';
 import 'package:habit_tracking/features/new%20habit/Data/model/habit_view_model.dart';
 import 'package:habit_tracking/features/new%20habit/Data/model/habits_model.dart';
-import 'package:habit_tracking/features/new%20habit/new_habit_view.dart';
 import 'package:habit_tracking/features/timer/presentation/manager/timer_cubit/timer_cubit.dart';
 import 'package:hive_flutter/adapters.dart';
 import 'package:provider/provider.dart';
@@ -39,17 +37,17 @@ class MyApp extends StatelessWidget {
       child: ScreenUtilInit(
         designSize: const Size(375, 812),
         child: MultiBlocProvider(
-  providers: [
-    BlocProvider(
-          create: (context) => HomeCubit()
-            ..selectDate(DateTime(
-                DateTime.now().year, DateTime.now().month, DateTime.now().day)),
-),
-    BlocProvider(
-      create: (context) => TimerCubit(),
-    ),
-  ],
-  child: MaterialApp(
+          providers: [
+            BlocProvider(
+              create: (context) => HomeCubit()
+                ..selectDate(DateTime(DateTime.now().year, DateTime.now().month,
+                    DateTime.now().day)),
+            ),
+            BlocProvider(
+              create: (context) => TimerCubit(),
+            ),
+          ],
+          child: MaterialApp(
             debugShowCheckedModeBanner: false,
             onGenerateRoute: AppRouter.onGenerateRoute,
             useInheritedMediaQuery: true,
@@ -58,7 +56,7 @@ class MyApp extends StatelessWidget {
             theme: ThemeData.light(),
             darkTheme: ThemeData.dark(),
           ),
-),
+        ),
       ),
     );
   }

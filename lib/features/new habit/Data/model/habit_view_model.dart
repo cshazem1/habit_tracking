@@ -17,10 +17,9 @@ class HabitViewModel extends ChangeNotifier {
   // final Box<HabitsModel> _habitBox = Hive.box<HabitsModel>('habits');
   HabitViewModel() {
     final now = DateTime.now();
-    final reminderTime = DateTime(now.year, now.month, now.day);
     habitsBox = Hive.box<HabitsModel>('habits');
     for (var element in habitsBox!.values) {
-      print(element.habits[reminderTime]?.length);
+      print("wwwwwwwwwwwwwwww");
     }
   }
 

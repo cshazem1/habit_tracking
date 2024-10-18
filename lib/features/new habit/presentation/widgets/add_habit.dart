@@ -6,7 +6,6 @@ import 'package:habit_tracking/features/new%20habit/Data/model/habits_final_mode
 import 'package:habit_tracking/generated/assets.dart';
 import 'package:provider/provider.dart';
 
-import '../../../../core/routes/app_routes.dart';
 
 class CreateCustomHabit extends StatefulWidget {
    CreateCustomHabit({super.key, this.index, this.habits});
@@ -155,16 +154,19 @@ class _CreateCustomHabitState extends State<CreateCustomHabit> {
                   viewModel.editHabit(
                       HomeCubit.get(context).userSelectedDate ?? DateTime.now(),
                       widget.index ?? 0);
-                  HomeCubit.get(context).refresh();
+
+                  HomeCubit.get(context).selectDate( HomeCubit.get(context).userSelectedDate ?? DateTime.now());
                 }
                 else {
                   viewModel.addHabit(
                     HomeCubit.get(context).userSelectedDate ?? DateTime.now());
-                  HomeCubit.get(context).refresh();
+                  HomeCubit.get(context).selectDate( HomeCubit.get(context).userSelectedDate ?? DateTime.now());
+
 
                 }
 
-                Navigator.pushReplacementNamed(context, AppRoutes.home);
+Navigator.pop(context);
+
               },
               style: ElevatedButton.styleFrom(
                 backgroundColor: const Color(0xff5F6CE2),

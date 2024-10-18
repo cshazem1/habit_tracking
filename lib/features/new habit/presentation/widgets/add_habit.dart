@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:habit_tracking/core/utlis/styles.dart';
 import 'package:habit_tracking/features/home/presentation/manager/home_cubit.dart';
 import 'package:habit_tracking/features/home/presentation/screens/home_view.dart';
+import 'package:habit_tracking/features/navigation/main_navigation_page.dart';
 import 'package:habit_tracking/features/new%20habit/Data/model/habit_view_model.dart';
+import 'package:habit_tracking/features/progress/presentation/controller/weekly_progress_cubit.dart';
 import 'package:habit_tracking/generated/assets.dart';
 import 'package:provider/provider.dart';
 
@@ -30,7 +32,7 @@ class CreateCustomHabit extends StatelessWidget {
                 minLines: 1,
                 decoration: InputDecoration(
 
-                  prefixIcon:  Icon(Icons.note),
+                  prefixIcon:  const Icon(Icons.note),
                   hintText: 'Name of habit',
                   border: OutlineInputBorder(
 
@@ -126,9 +128,11 @@ class CreateCustomHabit extends StatelessWidget {
               ElevatedButton(
                 onPressed: () {
                   viewModel.addHabit(HomeCubit.get(context).userSelectedDate??DateTime.now());
-
-                Navigator.pushReplacementNamed(context, AppRoutes.home);
-                },
+                  Navigator.pushReplacement<void, void>(
+                      context,
+                      MaterialPageRoute<void>(
+                      builder: (BuildContext context) =>  MainNavigationPage(),
+                  ));               },
                 style: ElevatedButton.styleFrom(
                   backgroundColor: const Color(0xff5F6CE2),
                   padding:

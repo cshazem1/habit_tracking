@@ -11,24 +11,24 @@ class HomeCubit extends Cubit<HomeState> {
   HomeCubit() : super(HomeInitial());
   static HomeCubit get (context)=>BlocProvider.of<HomeCubit>(context);
   DateTime ?userSelectedDate;
-List<HabitFinalModel>? habitFinalModel;
+  List<HabitFinalModel>? habitFinalModel;
   selectDate(DateTime selectedDate){
     print(selectedDate);
     emit(SelectDateLoading());
     userSelectedDate=selectedDate;
-for (var element in HabitViewModel.habitsBox!.values) {
-  if(element.habits.containsKey(selectedDate)){
-    habitFinalModel=element.habits[selectedDate];
-    emit(SelectDateSuccess());
+    for (var element in HabitViewModel.habitsBox!.values) {
+      if(element.habits.containsKey(selectedDate)){
+        habitFinalModel=element.habits[selectedDate];
+        emit(SelectDateSuccess());
 
-    return;
-  }
-  habitFinalModel=[];
-  emit(SelectDateSuccess());
+        return;
+      }
+      habitFinalModel=[];
+      emit(SelectDateSuccess());
 
-}
+    }
 
-print(habitFinalModel);
+    print(habitFinalModel);
 
 
   }
@@ -51,7 +51,7 @@ print(habitFinalModel);
     for(var habit in HabitViewModel.habitsBox!.values){
       if(habit.habits.containsKey(userSelectedDate)){
         List<HabitFinalModel>? list=habit.habits[userSelectedDate];
-      bool check=  list?[index].isCompleted??false;
+        bool check=  list?[index].isCompleted??false;
         list?[index].isCompleted= !check;
         HabitViewModel.habitsBox?.putAt(HabitViewModel.habitsBox!.values.toList().indexOf(habit), habit);
         return;

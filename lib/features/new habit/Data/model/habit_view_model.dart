@@ -20,9 +20,9 @@ class HabitViewModel extends ChangeNotifier {
     final reminderTime = DateTime
       (now.year,now.month ,now.day);
     habitsBox = Hive.box<HabitsModel>('habits');
-for(var element in habitsBox!.values){
-  print(element.habits[reminderTime]?.length);
-}
+    for(var element in habitsBox!.values){
+      print(element.habits[reminderTime]?.length);
+    }
 
 
   }
@@ -69,29 +69,29 @@ for(var element in habitsBox!.values){
             reminder: reminder.toString())
       ]
     });
-   Set<HabitsModel>? habitFinalModel=habitsBox?.values.toSet();
-   for(var element in habitFinalModel!) {
-if(element.habits.containsKey(date)){
-List<HabitFinalModel>? list=element.habits[date];
-list?.add(HabitFinalModel(
-    habitName: habitName,
-    habitColor: selectedColor,
-    habitIcon: selectedIcon,
-    timer: selectedTimer,
-    reminder: reminder.toString()));
+    Set<HabitsModel>? habitFinalModel=habitsBox?.values.toSet();
+    for(var element in habitFinalModel!) {
+      if(element.habits.containsKey(date)){
+        List<HabitFinalModel>? list=element.habits[date];
+        list?.add(HabitFinalModel(
+            habitName: habitName,
+            habitColor: selectedColor,
+            habitIcon: selectedIcon,
+            timer: selectedTimer,
+            reminder: reminder.toString()));
 
-habitsBox?.putAt(habitFinalModel.toList().indexOf(element), element);
-notifyListeners();
-return;
-}
-
-
+        habitsBox?.putAt(habitFinalModel.toList().indexOf(element), element);
+        notifyListeners();
+        return;
+      }
 
 
 
-   }
-   habitsBox?.add(newHabit);
-   notifyListeners();
+
+
+    }
+    habitsBox?.add(newHabit);
+    notifyListeners();
 
   }
 

@@ -12,7 +12,6 @@ import 'package:habit_tracking/generated/assets.dart';
 
 class OnboardinView extends StatelessWidget {
   const OnboardinView({super.key});
-
   @override
   Widget build(BuildContext context) {
     final controller = Get.put(OnboardingController());

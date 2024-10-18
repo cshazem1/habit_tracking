@@ -3,7 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:habit_tracking/core/utlis/styles.dart';
 
-import 'habits_bar_chart.dart';
+import 'bar_chart_widget.dart';
 
 class ProgressChartContainer extends StatelessWidget {
   const ProgressChartContainer({super.key});
@@ -29,7 +29,7 @@ class ProgressChartContainer extends StatelessWidget {
           const Text("78%", style: Styles.textSemiBold32),
           const SizedBox(height: 10),
           Expanded(
-            child: HabitsBarChart(habitsPerDay: habitsPerDay),
+            child: BarChartWidget(habitsPerDay: habitsPerDay),
           ),
         ],
       ),

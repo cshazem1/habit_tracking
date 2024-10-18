@@ -8,21 +8,21 @@ class HabitFinalModel extends HiveObject{
 
 
   @HiveField(0)
-   String habitName;
+  String habitName;
 
   @HiveField(1)
-   int habitColor;
+  int habitColor;
 
   @HiveField(2)
-   String habitIcon;
+  String habitIcon;
 
   @HiveField(3)
-   String timer;
+  String timer;
 
   @HiveField(4)
-   String reminder;
+  String reminder;
   @HiveField(5)
- bool isCompleted;
+  bool isCompleted;
   HabitFinalModel({
     required this.habitName ,
     required this.habitColor ,

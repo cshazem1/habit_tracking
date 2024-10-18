@@ -30,26 +30,26 @@ class BarChartWidget extends StatelessWidget {
               getTitlesWidget: (double value, TitleMeta meta) {  // Updated getTitles -> getTitlesWidget
                 switch (value.toInt()) {
                   case 0:
-                    return Text('Sun');
+                    return Text('S');
                   case 1:
-                    return Text('Mon');
+                    return Text('M');
                   case 2:
-                    return Text('Tue');
+                    return Text('T');
                   case 3:
-                    return Text('Wed');
+                    return Text('W');
                   case 4:
-                    return Text('Thu');
+                    return Text('T');
                   case 5:
-                    return Text('Fri');
+                    return Text('Fr');
                   case 6:
-                    return Text('Sat');
+                    return Text('S');
                   default:
                     return Text('');
                 }
               },
             ),
           ),
-          leftTitles: AxisTitles(
+          leftTitles: const AxisTitles(
             sideTitles: SideTitles(showTitles: true),
           ),
         ),

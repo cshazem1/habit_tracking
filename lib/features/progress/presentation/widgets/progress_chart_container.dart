@@ -6,7 +6,11 @@ import 'package:habit_tracking/core/utlis/styles.dart';
 import 'bar_chart_widget.dart';
 
 class ProgressChartContainer extends StatelessWidget {
-  const ProgressChartContainer({super.key});
+
+  final String percentage;
+  final  List<int> habitsPerDayList;
+
+  const ProgressChartContainer({super.key, required this.percentage, required this.habitsPerDayList});
 
   @override
   Widget build(BuildContext context) {
@@ -26,10 +30,10 @@ class ProgressChartContainer extends StatelessWidget {
           const SizedBox(height: 5),
           const Text("Total Activities", style: Styles.textMedium16),
           const SizedBox(height: 5),
-          const Text("78%", style: Styles.textSemiBold32),
+           Text("$percentage %", style: Styles.textSemiBold32),
           const SizedBox(height: 10),
           Expanded(
-            child: BarChartWidget(habitsPerDay: habitsPerDay),
+            child: BarChartWidget(habitsPerDay: habitsPerDayList),
           ),
         ],
       ),

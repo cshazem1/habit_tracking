@@ -31,7 +31,6 @@ class HomeCubit extends Cubit<HomeState> {
 
     for (int i = 0; i < 7; i++) {
       isCompletedList[i] ??= IsCompleted(completed: 0, incomplete: 0);
-
       DateTime selectDate = start.add(Duration(days: i));
       for (var element in HabitViewModel.habitsBox!.values) {
         if (element.habits.containsKey(selectDate)) {
@@ -107,6 +106,5 @@ class HomeCubit extends Cubit<HomeState> {
   }
 void refresh() {
     emit(CheckHabitSuccess());
-
 }
 }

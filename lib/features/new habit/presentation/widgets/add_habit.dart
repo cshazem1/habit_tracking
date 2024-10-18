@@ -3,16 +3,17 @@ import 'package:habit_tracking/core/utlis/styles.dart';
 import 'package:habit_tracking/features/home/presentation/manager/home_cubit.dart';
 import 'package:habit_tracking/features/new%20habit/Data/model/habit_view_model.dart';
 import 'package:habit_tracking/features/new%20habit/Data/model/habits_final_model.dart';
+import 'package:habit_tracking/features/progress/presentation/controller/weekly_progress_cubit.dart';
 import 'package:habit_tracking/generated/assets.dart';
 import 'package:provider/provider.dart';
 
 import '../../../../core/routes/app_routes.dart';
 
 class CreateCustomHabit extends StatefulWidget {
-   CreateCustomHabit({super.key, this.index, this.habits});
+  CreateCustomHabit({super.key, this.index, this.habits});
   final HabitFinalModel? habits;
   final int? index;
-   TextEditingController? controller;
+  TextEditingController? controller;
 
   @override
   State<CreateCustomHabit> createState() => _CreateCustomHabitState();
@@ -150,7 +151,6 @@ class _CreateCustomHabitState extends State<CreateCustomHabit> {
             ),
             ElevatedButton(
               onPressed: () {
-
                 if (widget.habits != null) {
                   viewModel.editHabit(
                       HomeCubit.get(context).userSelectedDate ?? DateTime.now(),
@@ -159,7 +159,7 @@ class _CreateCustomHabitState extends State<CreateCustomHabit> {
                 }
                 else {
                   viewModel.addHabit(
-                    HomeCubit.get(context).userSelectedDate ?? DateTime.now());
+                      HomeCubit.get(context).userSelectedDate ?? DateTime.now());
                   HomeCubit.get(context).refresh();
 
                 }
@@ -169,16 +169,16 @@ class _CreateCustomHabitState extends State<CreateCustomHabit> {
               style: ElevatedButton.styleFrom(
                 backgroundColor: const Color(0xff5F6CE2),
                 padding:
-                    const EdgeInsets.symmetric(vertical: 16, horizontal: 24),
+                const EdgeInsets.symmetric(vertical: 16, horizontal: 24),
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(8),
                 ),
               ),
               child: const Center(
                   child: Text(
-                'Continue',
-                style: TextStyle(color: Colors.white),
-              )),
+                    'Continue',
+                    style: TextStyle(color: Colors.white),
+                  )),
             ),
           ],
         ),
@@ -367,8 +367,8 @@ class _CreateCustomHabitState extends State<CreateCustomHabit> {
   //show time fnc
   void _pickReminderTime(BuildContext context, HabitViewModel viewModel) {
     showTimePicker(
-            context: context,
-            initialTime: TimeOfDay.fromDateTime(viewModel.reminder))
+        context: context,
+        initialTime: TimeOfDay.fromDateTime(viewModel.reminder))
         .then((selectedTime) {
       if (selectedTime != null) {
         final now = DateTime.now();

@@ -62,6 +62,7 @@ class YearlyProgressCubit extends Cubit<YearlyProgressState> {
 
     // Accessing isCompleted data from HomeCubit
     print(homeCubit.isCompletedList);
+    print ("Hiiiiiiiiiiiiii ${homeCubit.isCompletedList[0]?.incomplete}");
 
     emit(YearlyProgressLoaded(
       completionPercentage: completionPercentage,

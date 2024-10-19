@@ -10,9 +10,8 @@ import 'package:hive_flutter/adapters.dart';
 import 'package:provider/provider.dart';
 import 'core/routes/app_router.dart';
 import 'features/home/presentation/manager/home_cubit.dart';
+import 'features/navigation/main_navigation_page.dart';
 import 'features/new habit/Data/model/habits_final_model.dart';
-import 'features/progress/presentation/controller/monthly_cubit.dart';
-import 'features/progress/presentation/controller/yearly_cubit.dart';
 
 void main() async {
   await Hive.initFlutter();
@@ -42,25 +41,13 @@ class MyApp extends StatelessWidget {
           providers: [
             BlocProvider(
               create: (context) => HomeCubit()
-                ..selectDate(DateTime.now()),
-            ),
-            BlocProvider(
-              create: (context) => TimerCubit(),
-            ),
-              BlocProvider(create: (context) => WeeklyProgressCubit()),
-              BlocProvider(create: (context) => MonthlyProgressCubit(context.read<HomeCubit>())),
-              BlocProvider(create: (context) => YearlyProgressCubit(context.read<HomeCubit>())),// Provide WeeklyProgressCubit here
-          ],
-          child: MaterialApp(
-          providers: [
-            BlocProvider(
-              create: (context) => HomeCubit()
                 ..selectDate(DateTime(DateTime.now().year, DateTime.now().month,
                     DateTime.now().day)),
             ),
             BlocProvider(
               create: (context) => TimerCubit(),
             ),
+
           ],
           child: MaterialApp(
             debugShowCheckedModeBanner: false,
@@ -71,8 +58,9 @@ class MyApp extends StatelessWidget {
             theme: ThemeData.light(),
             darkTheme: ThemeData.dark(),
             home: MainNavigationPage(),
+
           ),
-),
+        ),
       ),
     );
   }

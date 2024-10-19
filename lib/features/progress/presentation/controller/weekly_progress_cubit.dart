@@ -36,6 +36,7 @@ class WeeklyProgressCubit extends Cubit<WeeklyProgressState> {
       }
 
       double completionPercentage = (totalHabits == 0) ? 0 : (completedHabits / totalHabits) * 100;
+
       emit(WeeklyProgressLoaded(
         completionPercentage: completionPercentage,
         habitsPerDay: habitsPerDay,
@@ -43,6 +44,7 @@ class WeeklyProgressCubit extends Cubit<WeeklyProgressState> {
         bestStreak: 0, // You can calculate streaks if needed
         totalHabits: totalHabits,
       ));
+      print(completionPercentage);
     } catch (e) {
       emit(WeeklyProgressError('Failed to load weekly progress: $e'));
     }

@@ -1,14 +1,16 @@
 import 'package:bloc/bloc.dart';
 import 'package:hive/hive.dart';
+import 'package:habit_tracking/features/new%20habit/Data/model/habits_final_model.dart';
+import 'package:habit_tracking/features/new%20habit/Data/model/habits_model.dart';
+import 'package:habit_tracking/features/progress/presentation/controller/monthly_progress_state.dart';
 
-import '../../../new habit/Data/model/habits_final_model.dart';
-import '../../../new habit/Data/model/habits_model.dart';
-import 'monthly_progress_state.dart';
+import '../../../home/presentation/manager/home_cubit.dart'; // Import HomeCubit
 
 class MonthlyProgressCubit extends Cubit<MonthlyProgressState> {
-  MonthlyProgressCubit() : super(MonthlyProgressInitial());
+  MonthlyProgressCubit(this.homeCubit) : super(MonthlyProgressInitial());
 
   static Box<HabitsModel>? habitsBox;
+  final HomeCubit homeCubit; // Use HomeCubit here
 
   DateTime startOfMonth = DateTime(DateTime.now().year, DateTime.now().month, 1);
   DateTime endOfMonth = DateTime(DateTime.now().year, DateTime.now().month + 1, 0);
@@ -47,9 +49,12 @@ class MonthlyProgressCubit extends Cubit<MonthlyProgressState> {
 
     double completionPercentage = (totalHabits == 0) ? 0 : (completedHabits / totalHabits) * 100;
 
+    // Accessing isCompleted data from HomeCubit
+    print(homeCubit.isCompletedList);
+
     emit(MonthlyProgressLoaded(
       completionPercentage: completionPercentage,
-      habitsPerDay: habitsPerDay, // This can remain the same if it's for displaying habits completed
+      habitsPerDay: habitsPerDay,
       completedHabitsPerDay: habitsPerDay, // Assuming this is intended to show the same data
       bestStreak: bestStreak,
       totalHabits: totalHabits,

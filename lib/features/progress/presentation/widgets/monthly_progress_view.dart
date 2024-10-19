@@ -1,12 +1,14 @@
+
+
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:fl_chart/fl_chart.dart';
 import 'package:habit_tracking/features/progress/presentation/widgets/progress_card.dart';
 import 'package:habit_tracking/features/progress/presentation/widgets/progress_chart_container.dart';
 
+import '../../../home/presentation/manager/home_cubit.dart';
 import '../controller/monthly_cubit.dart';
 import '../controller/monthly_progress_state.dart';
-import 'bar_chart_widget.dart';
 
 class MonthlyProgressView extends StatelessWidget {
   const MonthlyProgressView({super.key});
@@ -14,7 +16,7 @@ class MonthlyProgressView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (context) => MonthlyProgressCubit()..loadMonthlyProgress(DateTime.now()),
+      create: (context) => MonthlyProgressCubit(context.read<HomeCubit>())..loadMonthlyProgress(DateTime.now()),
       child: Scaffold(
         body: BlocBuilder<MonthlyProgressCubit, MonthlyProgressState>(
           builder: (context, state) {
@@ -24,8 +26,7 @@ class MonthlyProgressView extends StatelessWidget {
                   // Percentage of habits done
                   Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 16.0),
-                    child:
-                    Row(
+                    child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         IconButton(
@@ -42,11 +43,12 @@ class MonthlyProgressView extends StatelessWidget {
                         ),
                       ],
                     ),
-
                   ),
                   // Bar chart for habits done per day
                   ProgressChartContainer(
-                      percentage: state.completionPercentage.toStringAsFixed(2), habitsPerDayList: state.completedHabitsPerDay),
+                    percentage: state.completionPercentage.toStringAsFixed(2),
+                    habitsPerDayList: state.completedHabitsPerDay,
+                  ),
                   // Best streaks
                   // Total habits
                   Padding(
@@ -56,11 +58,10 @@ class MonthlyProgressView extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         ProgressCard(num: state.bestStreak.toString(), title: "Best Streak Days"),
-                        ProgressCard(num: state.totalHabits.toString() , title: "Habit done")
+                        ProgressCard(num: state.totalHabits.toString(), title: "Habit done"),
                       ],
                     ),
                   ),
-
                   // Navigation arrows for previous/next week
                 ],
               );

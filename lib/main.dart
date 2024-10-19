@@ -8,9 +8,7 @@ import 'package:habit_tracking/features/home/presentation/screens/home_view.dart
 import 'package:habit_tracking/features/navigation/main_navigation_page.dart';
 import 'package:habit_tracking/features/new%20habit/Data/model/habit_view_model.dart';
 import 'package:habit_tracking/features/new%20habit/Data/model/habits_model.dart';
-import 'package:habit_tracking/features/new%20habit/new_habit_view.dart';
 import 'package:habit_tracking/features/progress/presentation/controller/weekly_progress_cubit.dart'; // Import WeeklyProgressCubit
-import 'package:habit_tracking/features/progress/presentation/progress_view.dart';
 import 'package:habit_tracking/features/timer/presentation/manager/timer_cubit/timer_cubit.dart';
 import 'package:hive_flutter/adapters.dart';
 import 'package:provider/provider.dart';
@@ -56,8 +54,8 @@ class MyApp extends StatelessWidget {
               create: (context) => TimerCubit(),
             ),
               BlocProvider(create: (context) => WeeklyProgressCubit()),
-              BlocProvider(create: (context) => MonthlyProgressCubit()),
-              BlocProvider(create: (context) => YearlyProgressCubit()),// Provide WeeklyProgressCubit here
+              BlocProvider(create: (context) => MonthlyProgressCubit(context.read<HomeCubit>())),
+              BlocProvider(create: (context) => YearlyProgressCubit(context.read<HomeCubit>())),// Provide WeeklyProgressCubit here
           ],
           child: MaterialApp(
             debugShowCheckedModeBanner: false,

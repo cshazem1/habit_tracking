@@ -22,6 +22,7 @@ class _CreateCustomHabitState extends State<CreateCustomHabit> {
   @override
   void initState() {
     widget.controller = TextEditingController(text: widget.habits?.habitName);
+
     super.initState();
   }
   @override

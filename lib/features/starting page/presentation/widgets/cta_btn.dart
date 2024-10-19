@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import '../../../../core/utlis/styles.dart';
 
 class CtaBtn extends StatelessWidget {
-  const CtaBtn({super.key, required this.label, this.onClick});
+  const CtaBtn({super.key, required this.label, required this.onClick});
   final String label;
   final void Function()? onClick;
   @override

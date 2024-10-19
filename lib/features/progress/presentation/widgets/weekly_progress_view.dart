@@ -1,13 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:fl_chart/fl_chart.dart';
 import 'package:habit_tracking/features/progress/presentation/widgets/progress_card.dart';
 import 'package:habit_tracking/features/progress/presentation/widgets/progress_chart_container.dart';
-
+import '../../../home/presentation/manager/home_cubit.dart';
 import '../controller/weekly_progress_cubit.dart';
 import '../controller/weekly_progress_state.dart';
-import 'bar_chart_widget.dart';
-import 'progress_tab_bar.dart';
 
 class WeeklyProgressView extends StatelessWidget {
   const WeeklyProgressView({super.key});
@@ -30,13 +27,16 @@ class WeeklyProgressView extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         IconButton(
-                          icon: Icon(Icons.arrow_back),
+                          icon: const Icon(Icons.arrow_back),
                           onPressed: () {
+                            HomeCubit.get(context).selectDate(DateTime.now());
+
+                            HomeCubit.get(context).isCompleted(DateTime.now());
                             context.read<WeeklyProgressCubit>().moveToPreviousWeek();
                           },
                         ),
                         IconButton(
-                          icon: Icon(Icons.arrow_forward),
+                          icon: const Icon(Icons.arrow_forward),
                           onPressed: () {
                             context.read<WeeklyProgressCubit>().moveToNextWeek();
                           },
@@ -66,7 +66,7 @@ class WeeklyProgressView extends StatelessWidget {
                 ],
               );
             }
-            return Center(child: CircularProgressIndicator());
+            return const Center(child: CircularProgressIndicator());
           },
         ),
       ),

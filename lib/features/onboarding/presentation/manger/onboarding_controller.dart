@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:get_storage/get_storage.dart';
 import 'package:habit_tracking/features/starting%20page/presentation/starting_view.dart';
 
 class OnboardingController extends GetxController{
@@ -21,11 +22,11 @@ class OnboardingController extends GetxController{
   }
 
   //update current index and jump to next page.
-  void nextPage(context) {
+  void nextPage() {
     if( currentPageIndex.value ==2){
-   Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) {
-     return const StartingView();
-   },));
+      final storage = GetStorage();
+      storage.write("isFirstTime", false);
+      Get.to( const StartingView());
     }else{
       int page = currentPageIndex.value +1;
       pageController.jumpToPage(page);

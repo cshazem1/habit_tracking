@@ -7,7 +7,7 @@ class UserService {
     await prefs.setString('userData', user.toJson());
   }
 
-  Future<UserModel?> getUserData() async {
+ static Future<UserModel?> getUserData() async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
     String? userData = prefs.getString('userData');
 

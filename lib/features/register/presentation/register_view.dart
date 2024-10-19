@@ -141,6 +141,7 @@ import 'package:flutter/material.dart';
 import 'package:habit_tracking/core/models/user_model.dart';
 import 'package:habit_tracking/core/services/user_service.dart';
 import 'package:habit_tracking/features/login%20screen/presentation/login_screen.dart';
+import 'package:habit_tracking/features/navigation/main_navigation_page.dart';
 import 'package:habit_tracking/features/notification/notification_view.dart';
 import 'package:habit_tracking/features/starting%20page/presentation/widgets/cta_btn.dart';
 import 'package:habit_tracking/features/starting%20page/presentation/widgets/label_btn.dart';
@@ -238,7 +239,7 @@ class RegisterView extends StatelessWidget {
                     // Navigate to the next screen
                     Navigator.push(context, MaterialPageRoute(
                       builder: (context) {
-                        return const NotificationView();
+                        return  MainNavigationPage();
                       },
                     ));
                   }

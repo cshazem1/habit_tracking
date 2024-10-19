@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:habit_tracking/core/routes/app_routes.dart';
 import 'package:habit_tracking/core/utlis/styles.dart';
 import 'package:habit_tracking/features/new%20habit/presentation/widgets/add_habit.dart';
 
+import '../navigation/main_navigation_page.dart';
 import 'Data/model/habits_final_model.dart';
 
 class NewHabitView extends StatelessWidget {
@@ -16,11 +18,13 @@ final  HabitFinalModel?  habits;
       appBar: AppBar(
         title: const Text(
           'Create custom habit',
-          style: Styles.textSemiBold16,
+          style: Styles.textSemiBold24,
         ),
         centerTitle: true,
         leading:
-            IconButton(onPressed: () {}, icon: const Icon(Icons.arrow_back)),
+            IconButton(onPressed: () {
+              Navigator.pushNamed(context,AppRoutes.home);
+            }, icon: const Icon(Icons.arrow_back)),
       ),
       body:  CreateCustomHabit(index:index,habits:habits,),
     );

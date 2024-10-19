@@ -1,10 +1,20 @@
 import 'package:device_preview/device_preview.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get_navigation/src/root/get_material_app.dart';
-
+import 'package:hive/hive.dart';
+import 'package:hive_flutter/adapters.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'core/routes/app_router.dart';
+import 'features/home/presentation/manager/home_cubit.dart';
+import 'features/navigation/main_navigation_page.dart';
+import 'features/new habit/Data/model/habit_view_model.dart';
+import 'features/new habit/Data/model/habits_final_model.dart';
+import 'features/new habit/Data/model/habits_model.dart';
+import 'features/timer/presentation/manager/timer_cubit/timer_cubit.dart';
+import 'package:provider/provider.dart';
 
 var initScreen;
 
@@ -53,7 +63,7 @@ class MyApp extends StatelessWidget {
             ),
 
           ],
-          child: MaterialApp(
+          child: GetMaterialApp(
             debugShowCheckedModeBanner: false,
             onGenerateRoute: AppRouter.onGenerateRoute,
             useInheritedMediaQuery: true,
@@ -61,7 +71,6 @@ class MyApp extends StatelessWidget {
             builder: DevicePreview.appBuilder,
             theme: ThemeData.light(),
             darkTheme: ThemeData.dark(),
-            home: MainNavigationPage(),
 
           ),
         ),

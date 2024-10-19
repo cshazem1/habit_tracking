@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:habit_tracking/core/models/user_model.dart';
 import 'package:habit_tracking/core/services/user_service.dart';
+import 'package:habit_tracking/features/navigation/main_navigation_page.dart';
 import 'package:habit_tracking/features/register/presentation/register_view.dart';
 import 'package:habit_tracking/features/notification/notification_view.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -111,7 +112,7 @@ class LoginScreen extends StatelessWidget {
         // Successful login
         Navigator.pushReplacement(context, MaterialPageRoute(
           builder: (context) {
-            return const NotificationView();
+            return  MainNavigationPage();
           },
         ));
       } else {

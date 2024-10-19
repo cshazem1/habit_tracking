@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
-import 'package:habit_tracking/features/auth/presentation/screens/login/login_view.dart';
 import 'package:habit_tracking/features/starting%20page/presentation/starting_view.dart';
 
 class OnboardingController extends GetxController{

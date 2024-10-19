@@ -13,9 +13,10 @@ class SettingView extends StatelessWidget {
   Widget build(BuildContext context) {
     return  Scaffold(
       appBar: AppBar(
-        title: const Text("Setting",style: Styles.textSemiBold16,),
+        title: const Text("Setting",style: Styles.textSemiBold24,),
         centerTitle: true,
-        leading: IconButton(onPressed: (){}, icon: const Icon(Icons.arrow_back))),
+        automaticallyImplyLeading: false,
+      ),
       body: const Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [

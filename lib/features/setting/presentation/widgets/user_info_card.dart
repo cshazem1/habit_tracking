@@ -1,8 +1,32 @@
 import 'package:flutter/material.dart';
 import 'package:habit_tracking/core/utlis/styles.dart';
 
-class UserInfoCard extends StatelessWidget {
+import '../../../../core/models/user_model.dart';
+import '../../../../core/services/user_service.dart';
+
+class UserInfoCard extends StatefulWidget {
   const UserInfoCard({super.key});
+
+  @override
+  State<UserInfoCard> createState() => _UserInfoCardState();
+}
+
+
+
+class _UserInfoCardState extends State<UserInfoCard> {
+  UserModel? user ;
+
+  @override
+  void initState() {
+    getUser();
+    super.initState();
+  }
+  Future<void> getUser() async {
+    user = (await UserService.getUserData())!;
+    setState(() {
+
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -16,18 +40,8 @@ class UserInfoCard extends StatelessWidget {
       height: MediaQuery.of(context).size.height * 0.12,
       child: Stack(
         children: [
-          const Positioned(
-            left: 20,
-            top: 0,
-            bottom: 0,
-            child: CircleAvatar(
-              maxRadius:35 ,
-              minRadius: 35,
-
-            ),
-          ),
-          const Positioned(
-            left: 120,
+           Positioned(
+            left: 24,
             top: 0,
             bottom: 0,
             child: Column(
@@ -35,12 +49,12 @@ class UserInfoCard extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Text(
-                  "Zahir Mirzamammadili",
-                  style: Styles.textMedium14,
+                  user?.username ?? "Nada",
+                  style: Styles.textMedium16,
                 ),
                 Text(
-                  "Zahirmirz@gmail.com",
-                  style: Styles.textRegular10,
+                  user?.email ?? "Nada@11",
+                  style: Styles.textRegular14,
                 )
               ],
             ),

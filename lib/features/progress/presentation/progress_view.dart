@@ -4,6 +4,8 @@ import 'package:habit_tracking/features/progress/presentation/widgets/progress_t
 import 'package:habit_tracking/features/progress/presentation/widgets/weekly_progress_view.dart';
 import 'package:habit_tracking/features/progress/presentation/widgets/yearly_progress_view.dart';
 
+import '../../../core/utlis/styles.dart';
+
 
 
 class ProgressView extends StatefulWidget {
@@ -32,7 +34,8 @@ class _ProgressViewState extends State<ProgressView> with SingleTickerProviderSt
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Progress'),
+        automaticallyImplyLeading: false,
+        title:  const Text('Progress',style: Styles.textSemiBold24,),
       ),
       body: Column(
         children: [

@@ -15,11 +15,11 @@ class StartingView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    Get.put(OnboardingController());
     return Scaffold(
-
       body: Column(
         children: [
-              const StartingImageAndText(
+              StartingImageAndText(
                 image: TImages.startingImage,
                 title: TTexts.startScreenTitle,
                 title2: TTexts.startScreenTitle0,
@@ -32,15 +32,15 @@ class StartingView extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   CtaBtn(label: 'Continue', onClick:() {
-                    Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) {
-                      return const RegisterView();
+                    Navigator.push(context, MaterialPageRoute(builder: (context) {
+                      return RegisterView();
                     },)); } ,
                   ),
                   const SizedBox(height: 16),
                   LabelBtn(
                     label: "Already have an account", onClick: () {
-                      Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) {
-                    return const LoginScreen();
+                      Navigator.push(context, MaterialPageRoute(builder: (context) {
+                    return LoginScreen();
                   },)); },
                   ),
                 ],

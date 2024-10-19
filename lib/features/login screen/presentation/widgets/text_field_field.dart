@@ -1,25 +1,38 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:habit_tracking/core/utlis/styles.dart';
+
+import '../../../../core/utlis/styles.dart';
 
 class TextFieldField extends StatelessWidget {
-  const TextFieldField(
-      {super.key, required this.hintLabel, required this.label});
-  final String hintLabel, label;
+  const TextFieldField({
+    super.key,
+    required this.hintLabel,
+    required this.label,
+    required this.validator,
+    required this.controller,
+  });
+
+  final String hintLabel;
+  final String label;
+  final String? Function(String?) validator; // Correctly types the validator
+  final TextEditingController controller;
+
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(left: 16, right: 16),
+      padding: const EdgeInsets.symmetric(horizontal: 16), // Simplified padding
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text(label,
-              style: Styles.textMedium16.copyWith(
-                color: const Color(0xff2F3138),
-              )),
-          const SizedBox(
-            height: 8,
+          Text(
+            label,
+            style: Styles.textMedium16.copyWith(
+              color: const Color(0xff2F3138),
+            ),
           ),
-          TextField(
+          const SizedBox(height: 8),
+          TextFormField(
+            controller: controller,
             decoration: InputDecoration(
               hintStyle: const TextStyle(
                 color: Color(0xffABAEBA),
@@ -39,6 +52,7 @@ class TextFieldField extends StatelessWidget {
                 borderSide: BorderSide(color: Color(0xff5F6CE2), width: 2),
               ),
             ),
+            validator: validator, // Use the passed validator
           ),
         ],
       ),

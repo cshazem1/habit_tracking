@@ -58,6 +58,7 @@ class HomeCubit extends Cubit<HomeState> {
 
   selectDate(DateTime selectedDate) {
     print(selectedDate);
+    HabitViewModel();
     emit(SelectDateLoading());
     userSelectedDate = selectedDate;
 

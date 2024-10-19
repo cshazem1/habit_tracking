@@ -3,12 +3,8 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:get/get_navigation/src/root/get_material_app.dart';
-import 'package:habit_tracking/features/home/presentation/screens/home_view.dart';
-import 'package:habit_tracking/features/navigation/main_navigation_page.dart';
 import 'package:habit_tracking/features/new%20habit/Data/model/habit_view_model.dart';
 import 'package:habit_tracking/features/new%20habit/Data/model/habits_model.dart';
-import 'package:habit_tracking/features/progress/presentation/controller/weekly_progress_cubit.dart'; // Import WeeklyProgressCubit
 import 'package:habit_tracking/features/timer/presentation/manager/timer_cubit/timer_cubit.dart';
 import 'package:hive_flutter/adapters.dart';
 import 'package:provider/provider.dart';
@@ -19,9 +15,6 @@ import 'features/progress/presentation/controller/monthly_cubit.dart';
 import 'features/progress/presentation/controller/yearly_cubit.dart';
 
 void main() async {
-  WidgetsFlutterBinding.ensureInitialized();
-
-
   await Hive.initFlutter();
   Hive.registerAdapter(HabitFinalModelAdapter());
   Hive.registerAdapter(HabitsModelAdapter());
@@ -38,6 +31,7 @@ void main() async {
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
+  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return ChangeNotifierProvider(
@@ -58,6 +52,17 @@ class MyApp extends StatelessWidget {
               BlocProvider(create: (context) => YearlyProgressCubit(context.read<HomeCubit>())),// Provide WeeklyProgressCubit here
           ],
           child: MaterialApp(
+          providers: [
+            BlocProvider(
+              create: (context) => HomeCubit()
+                ..selectDate(DateTime(DateTime.now().year, DateTime.now().month,
+                    DateTime.now().day)),
+            ),
+            BlocProvider(
+              create: (context) => TimerCubit(),
+            ),
+          ],
+          child: MaterialApp(
             debugShowCheckedModeBanner: false,
             onGenerateRoute: AppRouter.onGenerateRoute,
             useInheritedMediaQuery: true,
@@ -67,7 +72,7 @@ class MyApp extends StatelessWidget {
             darkTheme: ThemeData.dark(),
             home: MainNavigationPage(),
           ),
-        ),
+),
       ),
     );
   }

@@ -31,7 +31,6 @@ class HomeCubit extends Cubit<HomeState> {
 
     for (int i = 0; i < 7; i++) {
       isCompletedList[i] ??= IsCompleted(completed: 0, incomplete: 0);
-
       DateTime selectDate = start.add(Duration(days: i));
       for (var element in HabitViewModel.habitsBox!.values) {
         if (element.habits.containsKey(selectDate)) {
@@ -84,12 +83,12 @@ class HomeCubit extends Cubit<HomeState> {
       if (habit.habits.containsKey(userSelectedDate)) {
         List<HabitFinalModel>? list = habit.habits[userSelectedDate];
         list?.removeAt(index);
-        HabitViewModel.habitsBox?.putAt(
-            HabitViewModel.habitsBox!.values.toList().indexOf(habit), habit);
+        HabitViewModel.habitsBox?.putAt(HabitViewModel.habitsBox!.values.toList().indexOf(habit), habit);
         return;
       }
       emit(RemoveHabitSuccess());
     }
+
   }
 
   checkHabit(int index) async {
@@ -108,6 +107,5 @@ class HomeCubit extends Cubit<HomeState> {
   }
 void refresh() {
     emit(CheckHabitSuccess());
-
 }
 }

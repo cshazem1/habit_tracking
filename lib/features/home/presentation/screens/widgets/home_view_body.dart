@@ -22,6 +22,7 @@ class HomeViewBody extends StatefulWidget {
 class _HomeViewBodyState extends State<HomeViewBody> {
   @override
   Widget build(BuildContext context) {
+    final viewModel = Provider.of<HabitViewModel>(context);
     return BlocBuilder<HomeCubit, HomeState>(
       builder: (context, state) {
         HomeCubit cubit = HomeCubit.get(context);

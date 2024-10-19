@@ -52,10 +52,11 @@ class HabitViewModel extends ChangeNotifier {
     await habitsBox?.deleteAt(index);
     notifyListeners();
   }
-
+//Nada changes normalized date
   void addHabit(DateTime date) {
+    DateTime normalizedDate = DateTime(date.year, date.month, date.day);
     HabitsModel newHabit = HabitsModel(habits: {
-      date: [
+      normalizedDate: [
         HabitFinalModel(
             habitName: habitName,
             habitColor: selectedColor,
@@ -66,8 +67,8 @@ class HabitViewModel extends ChangeNotifier {
     });
     Set<HabitsModel>? habitFinalModel = habitsBox?.values.toSet();
     for (var element in habitFinalModel!) {
-      if (element.habits.containsKey(date)) {
-        List<HabitFinalModel>? list = element.habits[date];
+      if (element.habits.containsKey(normalizedDate)) {
+        List<HabitFinalModel>? list = element.habits[normalizedDate];
         list?.add(HabitFinalModel(
             habitName: habitName,
             habitColor: selectedColor,
@@ -87,8 +88,10 @@ class HabitViewModel extends ChangeNotifier {
   }
 
   void editHabit(DateTime date,int index) {
+    DateTime normalizedDate = DateTime(date.year, date.month, date.day);
+
     HabitsModel newHabit = HabitsModel(habits: {
-      date: [
+      normalizedDate: [
         HabitFinalModel(
             habitName: habitName,
             habitColor: selectedColor,
@@ -99,8 +102,8 @@ class HabitViewModel extends ChangeNotifier {
     });
     Set<HabitsModel>? habitFinalModel = habitsBox?.values.toSet();
     for (var element in habitFinalModel!) {
-      if (element.habits.containsKey(date)) {
-        List<HabitFinalModel>? list = element.habits[date];
+      if (element.habits.containsKey(normalizedDate)) {
+        List<HabitFinalModel>? list = element.habits[normalizedDate];
         list?[index]=HabitFinalModel(
             habitName: habitName,
             habitColor: selectedColor,
@@ -123,9 +126,10 @@ class HabitViewModel extends ChangeNotifier {
 
 
   removeHabit(DateTime date, int index) async {
+    DateTime normalizedDate = DateTime(date.year, date.month, date.day);
     for (var habit in habitsBox!.values) {
-      if (habit.habits.containsKey(date)) {
-        List<HabitFinalModel>? list = habit.habits[date];
+      if (habit.habits.containsKey(normalizedDate)) {
+        List<HabitFinalModel>? list = habit.habits[normalizedDate];
         list?.removeAt(index);
         habitsBox?.putAt(habitsBox!.values.toList().indexOf(habit), habit);
         notifyListeners();
@@ -134,7 +138,9 @@ class HabitViewModel extends ChangeNotifier {
     }
   }
 
-  List<HabitFinalModel>? getHabitByDate(DateTime date) {}
-
+  List<HabitFinalModel>? getHabitByDate(DateTime date) {
+    DateTime normalizedDate = DateTime(date.year, date.month, date.day);
+    return habitsBox?.get(normalizedDate)?.habits[normalizedDate];
+  }
   List<HabitsModel> get habits => habitsBox?.values.toList() ?? [];
 }

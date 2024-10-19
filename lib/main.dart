@@ -23,8 +23,6 @@ Future<void> main() async {
   Hive.registerAdapter(HabitFinalModelAdapter());
   Hive.registerAdapter(HabitsModelAdapter());
   await Hive.openBox<HabitsModel>('habits');
-
-
   WidgetsFlutterBinding.ensureInitialized();
   SharedPreferences preferences = await SharedPreferences.getInstance();
   initScreen= await preferences.getInt("initScreen");

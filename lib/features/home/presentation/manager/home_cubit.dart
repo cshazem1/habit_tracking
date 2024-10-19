@@ -1,3 +1,4 @@
+
 import 'package:bloc/bloc.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:habit_tracking/features/new%20habit/Data/model/habits_final_model.dart';
@@ -57,11 +58,10 @@ class HomeCubit extends Cubit<HomeState> {
   }
 
   selectDate(DateTime selectedDate) {
-    print(selectedDate);
+    print("LLLLLLLLLLLLLLLLLLLL$selectedDate");
     HabitViewModel();
     emit(SelectDateLoading());
     userSelectedDate = selectedDate;
-
     for (var element in HabitViewModel.habitsBox!.values) {
       if (element.habits.containsKey(selectedDate)) {
         habitFinalModel = element.habits[selectedDate];

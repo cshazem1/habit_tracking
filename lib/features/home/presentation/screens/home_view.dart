@@ -33,7 +33,7 @@ class _HomeViewState extends State<HomeView> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: CustomAppBarHome(
-        name: user?.username??"Hazem",
+        name: user?.username??"",
         onPressedAdd: () {
           Navigator.pushNamed(context, AppRoutes.newHabitView);
         },

@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:habit_tracking/core/services/user_service.dart';
 import 'package:habit_tracking/features/new%20habit/Data/model/habits_final_model.dart';
 import 'package:habit_tracking/features/new%20habit/Data/model/habits_model.dart';
 import 'package:hive/hive.dart';
 
+import '../../../../core/models/user_model.dart';
 import '../../../../generated/assets.dart';
 
 class HabitViewModel extends ChangeNotifier {
@@ -13,6 +15,7 @@ class HabitViewModel extends ChangeNotifier {
   DateTime reminder = DateTime.now();
 
   static Box<HabitsModel>? habitsBox;
+
 
   // final Box<HabitsModel> _habitBox = Hive.box<HabitsModel>('habits');
   HabitViewModel() {

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:habit_tracking/features/home/presentation/screens/home_view.dart';
 import 'package:habit_tracking/features/timer/presentation/timer_views.dart';
+import '../../features/login screen/presentation/login_screen.dart';
 import '../../features/navigation/main_navigation_page.dart';
 import '../../features/new habit/new_habit_view.dart';
 import '../../features/onboarding/presentation/onboardin_view.dart';
@@ -13,6 +14,8 @@ class AppRouter {
           switch (settings.name) {
             case AppRoutes.splash:
               return const OnboardinView();
+            case AppRoutes.login:
+              return  LoginScreen();
             case AppRoutes.home:
               return  MainNavigationPage();
             case AppRoutes.timer:

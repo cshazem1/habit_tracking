@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:habit_tracking/core/routes/app_routes.dart';
 
 class LogOutBtton extends StatelessWidget {
   const LogOutBtton({super.key});
@@ -6,6 +7,9 @@ class LogOutBtton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return InkWell(
+      onTap: (){
+        Navigator.pushNamed(context, AppRoutes.login);
+      },
       child: Container(
         margin: const EdgeInsets.symmetric(vertical: 10,horizontal: 20),
         width: double.maxFinite,
